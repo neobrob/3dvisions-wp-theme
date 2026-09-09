@@ -1,8 +1,36 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} -->
-<!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between"}} -->
-<div class="wp-block-group" style="padding:16px 32px">
-  <!-- wp:site-logo {"width":140} /-->
-  <!-- wp:navigation {"layout":{"type":"flex","justifyContent":"right"}} /-->
+<!-- wp:group {"align":"full","style":{"color":{"background":"#ffffff"},"spacing":{"padding":{"top":"20px","bottom":"20px","left":"32px","right":"32px"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
+<div class="wp-block-group alignfull has-background" style="background-color:#ffffff;padding-top:20px;padding-right:32px;padding-bottom:20px;padding-left:32px">
+
+  <!-- wp:site-logo {"width":140,"shouldSyncIcon":false} /-->
+
+  <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"32px"}}} -->
+  <div class="wp-block-group">
+    <!-- wp:paragraph {"fontSize":"small","style":{"typography":{"fontWeight":"600"}}} -->
+    <p class="has-small-font-size" style="font-weight:600"><a href="/">Accueil</a></p>
+    <!-- /wp:paragraph -->
+    <!-- wp:paragraph {"fontSize":"small","style":{"typography":{"fontWeight":"600"}}} -->
+    <p class="has-small-font-size" style="font-weight:600"><a href="/prestations/">Prestations</a></p>
+    <!-- /wp:paragraph -->
+    <!-- wp:paragraph {"fontSize":"small","style":{"typography":{"fontWeight":"600"}}} -->
+    <p class="has-small-font-size" style="font-weight:600"><a href="/secteurs/">Secteurs</a></p>
+    <!-- /wp:paragraph -->
+    <!-- wp:paragraph {"fontSize":"small","style":{"typography":{"fontWeight":"600"}}} -->
+    <p class="has-small-font-size" style="font-weight:600"><a href="/realisations/">Réalisations</a></p>
+    <!-- /wp:paragraph -->
+    <!-- wp:paragraph {"fontSize":"small","style":{"typography":{"fontWeight":"600"}}} -->
+    <p class="has-small-font-size" style="font-weight:600"><a href="/qui-sommes-nous/">Qui sommes-nous</a></p>
+    <!-- /wp:paragraph -->
+    <!-- wp:buttons -->
+    <div class="wp-block-buttons">
+      <!-- wp:button {"backgroundColor":"teal","textColor":"white","fontSize":"small"} -->
+      <div class="wp-block-button has-small-font-size"><a class="wp-block-button__link has-white-color has-teal-background-color has-text-color has-background wp-element-button" href="/contact/">Contact</a></div>
+      <!-- /wp:button -->
+    </div>
+    <!-- /wp:buttons -->
+  </div>
+  <!-- /wp:group -->
+
 </div>
 <!-- /wp:group -->
 <!-- /wp:template-part -->
