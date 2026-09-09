@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Récupération du dépôt
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Envoi vers wp-content/themes/3dvisions (SFTP)
         uses: milanmk/actions-file-deployer@master
@@ -22,8 +24,4 @@ jobs:
           remote-password: ${{ secrets.INFOMANIAK_SFTP_PASSWORD }}
           local-path: "./"
           remote-path: ${{ secrets.INFOMANIAK_THEME_PATH }}
-          sync: "delta"
-          exclude: |
-            .git*
-            .github/**
-            README.md
+          sync: "full"
