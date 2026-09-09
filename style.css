@@ -1,0 +1,17 @@
+/*
+Theme Name: 3D Visions Designs
+Theme URI: https://new.3dvisions.ch
+Author: 3D Visions Designs
+Author URI: https://3dvisions.ch
+Description: Thème block (FSE) sur-mesure pour 3dvisions.ch, construit à partir du design system et du storybook validés (teal + noir/blanc, typographies Inter / Bai Jamjuree).
+Requires at least: 6.4
+Tested up to: 6.6
+Requires PHP: 7.4
+Version: 0.1.0
+License: Propriétaire — usage exclusif 3D Visions Designs
+Text Domain: 3dvisions
+*/
+
+/* Ce fichier reste volontairement vide de styles : en thème block (FSE), la quasi-totalité
+   des styles vient de theme.json + des styles par bloc/pattern. On n'ajoute ici que ce que
+   Gutenberg ne peut pas exprimer nativement (voir assets/css/extra.css une fois créé). */

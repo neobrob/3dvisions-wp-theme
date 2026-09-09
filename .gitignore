@@ -1,0 +1,10 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Dépendances éventuelles (si on ajoute un jour un build CSS/JS)
+node_modules/
+
+# Polices auto-hébergées volumineuses : à décider si on les versionne ou si on les
+# livre à part (dépend de la taille du repo une fois les vrais .woff2 ajoutés)
+# assets/fonts/*.woff2
