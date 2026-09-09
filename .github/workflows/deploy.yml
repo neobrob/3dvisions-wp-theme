@@ -1,0 +1,29 @@
+name: Déploiement du thème sur Infomaniak
+
+# Se déclenche automatiquement à chaque push sur main, ou manuellement depuis l'onglet Actions.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupération du dépôt
+        uses: actions/checkout@v4
+
+      - name: Envoi vers wp-content/themes/3dvisions (SFTP)
+        uses: milanmk/actions-file-deployer@master
+        with:
+          remote-protocol: "sftp"
+          remote-host: ${{ secrets.INFOMANIAK_SFTP_HOST }}
+          remote-user: ${{ secrets.INFOMANIAK_SFTP_USER }}
+          remote-password: ${{ secrets.INFOMANIAK_SFTP_PASSWORD }}
+          local-path: "./"
+          remote-path: ${{ secrets.INFOMANIAK_THEME_PATH }}
+          sync: "delta"
+          exclude: |
+            .git*
+            .github/**
+            README.md
