@@ -17,12 +17,29 @@
     <!-- wp:paragraph {"fontSize":"small","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em","fontWeight":"500"}}} -->
     <p class="has-small-font-size" style="text-transform:uppercase;letter-spacing:0.08em;font-weight:500"><a href="/" class="dov-nav-link">Accueil</a></p>
     <!-- /wp:paragraph -->
-    <!-- wp:paragraph {"fontSize":"small","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em","fontWeight":"500"}}} -->
-    <p class="has-small-font-size" style="text-transform:uppercase;letter-spacing:0.08em;font-weight:500"><a href="/prestations/" class="dov-nav-link">Prestations</a></p>
-    <!-- /wp:paragraph -->
-    <!-- wp:paragraph {"fontSize":"small","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em","fontWeight":"500"}}} -->
-    <p class="has-small-font-size" style="text-transform:uppercase;letter-spacing:0.08em;font-weight:500"><a href="/secteurs/" class="dov-nav-link">Secteurs</a></p>
-    <!-- /wp:paragraph -->
+    <!-- Sous-menu Prestations (voir design-system-web-v1.md, signature graphique) -->
+    <!-- wp:html -->
+    <span class="dov-nav-item">
+      <a href="/prestations/" class="dov-nav-link" style="text-transform:uppercase;letter-spacing:0.08em;font-weight:500;font-size:0.875rem">Prestations<span class="dov-nav-caret" aria-hidden="true">&#9662;</span></a>
+      <span class="dov-submenu">
+        <a href="/prestation/photogrammetrie-aerienne-drone/">Photogrammétrie aérienne par drone</a>
+        <a href="/prestation/orthophotographie-precision/">Orthophotographie de précision</a>
+        <a href="/prestation/releves-laser-scan-to-bim/">Relevés laser &amp; Scan-to-BIM</a>
+        <a href="/prestation/visites-virtuelles-360/">Visites virtuelles immersives (360°)</a>
+      </span>
+    </span>
+    <!-- /wp:html -->
+    <!-- Sous-menu Secteurs -->
+    <!-- wp:html -->
+    <span class="dov-nav-item">
+      <a href="/secteurs/" class="dov-nav-link" style="text-transform:uppercase;letter-spacing:0.08em;font-weight:500;font-size:0.875rem">Secteurs<span class="dov-nav-caret" aria-hidden="true">&#9662;</span></a>
+      <span class="dov-submenu">
+        <a href="/secteur/architecture-ingenierie/">Architecture &amp; ingénierie</a>
+        <a href="/secteur/monuments-historiques/">Monuments historiques</a>
+        <a href="/secteur/promotion-immobiliere/">Promotion immobilière</a>
+      </span>
+    </span>
+    <!-- /wp:html -->
     <!-- wp:paragraph {"fontSize":"small","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em","fontWeight":"500"}}} -->
     <p class="has-small-font-size" style="text-transform:uppercase;letter-spacing:0.08em;font-weight:500"><a href="/realisations/" class="dov-nav-link">Réalisations</a></p>
     <!-- /wp:paragraph -->

@@ -258,3 +258,123 @@
 .dov-nav-link:focus-visible::after {
 	transform: scaleX(1);
 }
+
+/* --- Sous-menus (Prestations / Secteurs) --------------------------------
+   Ajouté le 10.09.2026 à la demande de Marc, une fois les 4 pages Prestation
+   et 3 pages Secteur en place. CSS pur (:hover / :focus-within), pas de JS —
+   cohérent avec le reste du thème (page-level template files, pas d'app
+   côté client). L'accent vertical fendu sur chaque lien de sous-menu reprend
+   la même technique que .benefit-card::before, à plus petite échelle. */
+
+.dov-nav-item {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	/* comble l'espace entre le lien et le panneau : la zone de survol reste
+	   continue, le sous-menu ne se ferme pas quand la souris descend. */
+	padding-bottom: 14px;
+	margin-bottom: -14px;
+}
+
+.dov-nav-caret {
+	display: inline-block;
+	margin-left: 5px;
+	font-size: 9px;
+	opacity: 0.6;
+	transform: translateY(-1px);
+	transition: transform 0.2s ease;
+}
+
+.dov-nav-item:hover .dov-nav-caret,
+.dov-nav-item:focus-within .dov-nav-caret {
+	transform: rotate(180deg) translateY(1px);
+}
+
+.dov-submenu {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	min-width: 240px;
+	background: #ffffff;
+	border: 1px solid #dde4e4;
+	border-radius: 8px;
+	box-shadow: 0 12px 28px rgba(11, 55, 67, 0.14);
+	padding: 8px;
+	opacity: 0;
+	pointer-events: none;
+	transform: translate(-50%, -4px);
+	transition: opacity 0.18s ease, transform 0.18s ease;
+	z-index: 30;
+}
+
+.dov-nav-item:hover .dov-submenu,
+.dov-nav-item:focus-within .dov-submenu {
+	opacity: 1;
+	pointer-events: auto;
+	transform: translate(-50%, 0);
+}
+
+.dov-submenu a {
+	display: block;
+	position: relative;
+	padding: 9px 14px 9px 18px;
+	font-size: 0.8125rem;
+	font-weight: 500;
+	color: var(--wp--preset--color--ink, #1d1d2b);
+	text-decoration: none;
+	border-radius: 6px;
+	white-space: nowrap;
+	transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.dov-submenu a::before {
+	content: "";
+	position: absolute;
+	left: 4px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 3px;
+	height: 60%;
+	border-radius: 2px;
+	background: linear-gradient(
+		var(--dov-accent-color-b) 0,
+		var(--dov-accent-color-b) 40%,
+		transparent 40%,
+		transparent 60%,
+		var(--dov-accent-color-b) 60%,
+		var(--dov-accent-color-b) 100%
+	);
+	opacity: 0;
+	transition: opacity 0.15s ease;
+}
+
+.dov-submenu a:hover,
+.dov-submenu a:focus-visible {
+	color: var(--dov-accent-color);
+	background-color: var(--wp--preset--color--stone, #f2eee7);
+}
+
+.dov-submenu a:hover::before,
+.dov-submenu a:focus-visible::before {
+	opacity: 1;
+}
+
+@media (max-width: 900px) {
+	/* Pas encore de menu mobile dédié (voir architecture-technique-wordpress.md,
+	   point ouvert) : on évite au moins qu'un sous-menu en position absolute
+	   ne déborde de l'écran en dessous de 900px. */
+	.dov-submenu {
+		position: static;
+		transform: none;
+		box-shadow: none;
+		border: none;
+		min-width: 0;
+		width: 100%;
+		margin-top: 4px;
+		display: none;
+	}
+	.dov-nav-item:hover .dov-submenu,
+	.dov-nav-item:focus-within .dov-submenu {
+		display: block;
+	}
+}
