@@ -65,6 +65,69 @@ add_action('init', function () {
  * réutilisé en anneau fendu (.dov-ring) et en trait fendu (.dov-divider).
  * Voir assets/css/extra.css et design-system-web-v1.md.
  */
+
+/**
+ * Contenu de départ (10.09.2026) : termes des taxonomies Prestation/Secteur et
+ * pages d'index Prestations/Secteurs, nécessaires pour que les nouveaux gabarits
+ * (taxonomy-prestation-*.html, taxonomy-secteur-*.html, page-prestations.html,
+ * page-secteurs.html) aient une URL réelle à afficher. Idempotent (option verrou),
+ * à retirer une fois la connexion MCP côté contenu en place et ce contenu repris
+ * en gestion normale — voir architecture-technique-wordpress.md.
+ */
+add_action('init', function () {
+	if (get_option('3dv_seeded_content_v1')) {
+		return;
+	}
+
+	$prestations = [
+		'photogrammetrie-aerienne-drone' => "Photogrammétrie aérienne par drone",
+		'orthophotographie-precision'    => "Orthophotographie de précision",
+		'releves-laser-scan-to-bim'      => "Relevés laser & Scan-to-BIM",
+		'visites-virtuelles-360'         => "Visites virtuelles immersives (360°)",
+	];
+	foreach ($prestations as $slug => $name) {
+		if (!term_exists($slug, 'prestation')) {
+			wp_insert_term($name, 'prestation', ['slug' => $slug]);
+		}
+	}
+
+	$secteurs = [
+		'architecture-ingenierie' => "Architecture & ingénierie",
+		'monuments-historiques'   => "Monuments historiques",
+		'promotion-immobiliere'   => "Promotion immobilière",
+	];
+	foreach ($secteurs as $slug => $name) {
+		if (!term_exists($slug, 'secteur')) {
+			wp_insert_term($name, 'secteur', ['slug' => $slug]);
+		}
+	}
+
+	$pages = [
+		'prestations' => "Prestations",
+		'secteurs'    => "Secteurs",
+	];
+	foreach ($pages as $slug => $title) {
+		$existing = get_posts([
+			'post_type'   => 'page',
+			'name'        => $slug,
+			'post_status' => 'any',
+			'numberposts' => 1,
+		]);
+		if (empty($existing)) {
+			wp_insert_post([
+				'post_title'   => $title,
+				'post_name'    => $slug,
+				'post_type'    => 'page',
+				'post_status'  => 'publish',
+				'post_content' => '',
+			]);
+		}
+	}
+
+	flush_rewrite_rules();
+	update_option('3dv_seeded_content_v1', 1);
+}, 20);
+
 add_action('wp_enqueue_scripts', function () {
 	$path = get_theme_file_path('assets/css/extra.css');
 	wp_enqueue_style(

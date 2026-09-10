@@ -1,0 +1,86 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"72px","bottom":"48px"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull" style="background:linear-gradient(135deg,#146074 0%,#0b3743 100%);padding-top:72px;padding-bottom:48px">
+  <!-- wp:group {"layout":{"type":"constrained","contentSize":"640px"}} -->
+  <div class="wp-block-group">
+    <!-- wp:paragraph {"fontSize":"small","textColor":"teal-300","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em","fontWeight":"600"}}} -->
+    <p class="has-teal-300-color has-text-color has-small-font-size" style="text-transform:uppercase;letter-spacing:0.08em;font-weight:600">RÉALISATIONS</p>
+    <!-- /wp:paragraph -->
+    <!-- wp:heading {"level":1,"fontSize":"x-large","textColor":"white"} -->
+    <h1 class="wp-block-heading has-white-color has-text-color has-x-large-font-size">Nos réalisations</h1>
+    <!-- /wp:heading -->
+    <!-- wp:paragraph {"fontSize":"medium","textColor":"teal-100"} -->
+    <p class="has-teal-100-color has-text-color has-medium-font-size">Explorez les relevés et modèles 3D réalisés par 3D Visions Designs.</p>
+    <!-- /wp:paragraph -->
+  </div>
+  <!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:query {"query":{"perPage":9,"pages":0,"offset":0,"postType":"realisation","order":"desc","orderBy":"date","inherit":true},"align":"wide","layout":{"type":"default"}} -->
+<div class="wp-block-query alignwide" style="padding-top:48px;padding-bottom:32px">
+
+  <!-- wp:post-template {"style":{"spacing":{"blockGap":"18px"}},"layout":{"type":"grid","columnCount":3}} -->
+
+    <!-- wp:group {"style":{"border":{"color":"#dde4e4","width":"1px","radius":"8px"},"color":{"background":"#ffffff"}},"layout":{"type":"default"}} -->
+    <div class="wp-block-group has-background" style="border-color:#dde4e4;border-width:1px;border-radius:8px;background-color:#ffffff">
+      <!-- wp:post-featured-image {"isLink":true,"style":{"border":{"radius":"8px 8px 0 0"}},"height":"180px"} /-->
+      <!-- wp:group {"style":{"spacing":{"padding":{"top":"16px","bottom":"18px","left":"18px","right":"18px"}}},"layout":{"type":"default"}} -->
+      <div class="wp-block-group" style="padding-top:16px;padding-right:18px;padding-bottom:18px;padding-left:18px">
+        <!-- wp:post-terms {"term":"prestation","fontSize":"small","textColor":"teal","prefix":""} /-->
+        <!-- wp:post-title {"level":3,"isLink":true,"fontSize":"medium","textColor":"teal-900","style":{"spacing":{"margin":{"top":"6px"}}}} /-->
+      </div>
+      <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
+
+  <!-- /wp:post-template -->
+
+  <!-- wp:query-no-results -->
+    <!-- wp:group {"align":"wide","style":{"color":{"background":"#e4f0f2"},"border":{"radius":"8px"},"spacing":{"padding":{"top":"48px","bottom":"48px"}}},"layout":{"type":"constrained"}} -->
+    <div class="wp-block-group alignwide has-background" style="border-radius:8px;background-color:#e4f0f2;padding-top:48px;padding-bottom:48px">
+      <!-- wp:group {"layout":{"type":"constrained","contentSize":"560px"}} -->
+      <div class="wp-block-group" style="text-align:center">
+        <!-- wp:paragraph {"align":"center","fontSize":"medium","textColor":"teal-900"} -->
+        <p class="has-text-align-center has-teal-900-color has-text-color has-medium-font-size">Nos premières réalisations arrivent bientôt — revenez prochainement, ou découvrez nos prestations en attendant.</p>
+        <!-- /wp:paragraph -->
+        <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"16px"}}}} -->
+        <div class="wp-block-buttons" style="margin-top:16px">
+          <!-- wp:button {"backgroundColor":"white","textColor":"teal-900","fontSize":"small"} -->
+          <div class="wp-block-button has-small-font-size"><a class="wp-block-button__link has-teal-900-color has-white-background-color has-text-color has-background wp-element-button" href="/prestations/">Voir nos prestations</a></div>
+          <!-- /wp:button -->
+        </div>
+        <!-- /wp:buttons -->
+      </div>
+      <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
+  <!-- /wp:query-no-results -->
+
+</div>
+<!-- /wp:query -->
+
+<!-- wp:group {"align":"wide","style":{"color":{"background":"#146074"},"border":{"radius":"8px"},"spacing":{"padding":{"top":"36px","bottom":"36px","left":"40px","right":"40px"},"margin":{"top":"32px","bottom":"64px"}}},"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
+<div class="wp-block-group alignwide has-background" style="border-radius:8px;background-color:#146074;padding-top:36px;padding-right:40px;padding-bottom:36px;padding-left:40px;margin-top:32px;margin-bottom:64px">
+  <!-- wp:group {"layout":{"type":"constrained","contentSize":"480px"}} -->
+  <div class="wp-block-group">
+    <!-- wp:heading {"level":3,"fontSize":"large","textColor":"white"} -->
+    <h3 class="wp-block-heading has-white-color has-text-color has-large-font-size">Un projet à documenter ?</h3>
+    <!-- /wp:heading -->
+    <!-- wp:paragraph {"fontSize":"small","textColor":"teal-100"} -->
+    <p class="has-teal-100-color has-text-color has-small-font-size">Décrivez-nous votre site, nous vous proposons le format de livraison le plus adapté.</p>
+    <!-- /wp:paragraph -->
+  </div>
+  <!-- /wp:group -->
+  <!-- wp:buttons -->
+  <div class="wp-block-buttons">
+    <!-- wp:button {"backgroundColor":"stone","textColor":"teal-900"} -->
+    <div class="wp-block-button"><a class="wp-block-button__link has-teal-900-color has-stone-background-color has-text-color has-background wp-element-button" href="/contact/">Demander un devis</a></div>
+    <!-- /wp:button -->
+  </div>
+  <!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
