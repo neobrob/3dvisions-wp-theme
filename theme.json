@@ -32,7 +32,9 @@
           "name": "Inter",
           "fontFamily": "'Inter', system-ui, sans-serif",
           "fontFace": [
-            { "fontFamily": "Inter", "fontWeight": "400 700", "fontStyle": "normal", "src": ["file:./assets/fonts/inter-variable.woff2"] }
+            { "fontFamily": "Inter", "fontWeight": "400", "fontStyle": "normal", "src": ["file:./assets/fonts/inter-400.woff2"] },
+            { "fontFamily": "Inter", "fontWeight": "600", "fontStyle": "normal", "src": ["file:./assets/fonts/inter-600.woff2"] },
+            { "fontFamily": "Inter", "fontWeight": "700", "fontStyle": "normal", "src": ["file:./assets/fonts/inter-700.woff2"] }
           ]
         },
         {
@@ -41,8 +43,7 @@
           "fontFamily": "'Bai Jamjuree', sans-serif",
           "fontFace": [
             { "fontFamily": "Bai Jamjuree", "fontWeight": "600", "fontStyle": "normal", "src": ["file:./assets/fonts/bai-jamjuree-600.woff2"] },
-            { "fontFamily": "Bai Jamjuree", "fontWeight": "700", "fontStyle": "normal", "src": ["file:./assets/fonts/bai-jamjuree-700.woff2"] },
-            { "fontFamily": "Bai Jamjuree", "fontWeight": "800", "fontStyle": "normal", "src": ["file:./assets/fonts/bai-jamjuree-800.woff2"] }
+            { "fontFamily": "Bai Jamjuree", "fontWeight": "700", "fontStyle": "normal", "src": ["file:./assets/fonts/bai-jamjuree-700.woff2"] }
           ]
         }
       ],
