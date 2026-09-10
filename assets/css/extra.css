@@ -443,7 +443,14 @@ header {
 	position: relative;
 }
 
-@media (max-width: 900px) {
+/* Seuil relevé de 900px à 1150px (10.09.2026) : entre les deux, le
+   menu horizontal + logo ne tenait plus sur une seule ligne et
+   retombait sur deux lignes (logo puis menu), avec le sous-menu
+   ouvert qui semblait alors mal centré par rapport à son lien —
+   repéré en vérifiant en direct sur new.3dvisions.ch à une largeur
+   de fenêtre "laptop" courante (~1024-1100px). Le burger prend donc
+   le relais un peu plus tôt, avant que ce point de rupture n'arrive. */
+@media (max-width: 1150px) {
 	.dov-burger {
 		display: inline-block;
 	}
