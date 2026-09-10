@@ -58,3 +58,19 @@ add_action('init', function () {
  * Placer les fichiers .woff2 correspondants dans assets/fonts/ avant la mise en prod
  * (ne pas charger via Google Fonts CDN pour rester conforme RGPD/LPD suisse).
  */
+
+/**
+ * Feuille de style additionnelle : tout ce que Gutenberg/theme.json ne peut pas
+ * exprimer nativement, notamment le motif "signature graphique" (trait D/O)
+ * réutilisé en anneau fendu (.dov-ring) et en trait fendu (.dov-divider).
+ * Voir assets/css/extra.css et design-system-web-v1.md.
+ */
+add_action('wp_enqueue_scripts', function () {
+	$path = get_theme_file_path('assets/css/extra.css');
+	wp_enqueue_style(
+		'3dvisions-extra',
+		get_theme_file_uri('assets/css/extra.css'),
+		[],
+		file_exists($path) ? filemtime($path) : null
+	);
+});

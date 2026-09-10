@@ -1,0 +1,107 @@
+/*
+ * Signature graphique — le trait vertical (voir design-system-web-v1.md,
+ * section "Signature graphique — le trait vertical").
+ *
+ * Le motif vient des lettres D et O du wordmark, tranchées par une fente
+ * verticale nette. Deux déclinaisons génériques ci-dessous, réutilisables
+ * partout dans le thème :
+ *
+ *   .dov-ring     — anneau fendu autour d'une photo ronde (portraits équipe,
+ *                   et toute future photo ronde). L'anneau est un SVG (cercle
+ *                   à deux ouvertures via stroke-dasharray) posé par-dessus
+ *                   une photo normale, chargée via la médiathèque WordPress
+ *                   comme n'importe quelle image — pas de fichier composité
+ *                   à refaire à chaque nouvelle photo.
+ *   .dov-divider  — la même fente appliquée à un simple trait vertical,
+ *                   pour les contextes denses (en-tête, séparateurs,
+ *                   bordures de carte) où un anneau serait disproportionné.
+ *
+ * Couleur et épaisseur pilotées par variables CSS pour rester alignées sur
+ * theme.json sans dupliquer les couleurs ici.
+ */
+
+:root {
+	--dov-accent-color: var(--wp--preset--color--teal);
+}
+
+/* --- Anneau fendu (portraits) ------------------------------------------ */
+
+.dov-ring {
+	position: relative;
+	display: inline-block;
+	width: var(--dov-ring-size, 140px);
+	height: var(--dov-ring-size, 140px);
+}
+
+.dov-ring img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 64%;
+	height: 64%;
+	object-fit: cover;
+	border-radius: 50%;
+	display: block;
+}
+
+.dov-ring svg {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+.dov-ring circle {
+	fill: none;
+	stroke: var(--dov-ring-color, var(--dov-accent-color));
+	stroke-width: var(--dov-ring-width, 5.5);
+}
+
+/* --- Trait fendu (usages denses : en-tête, cartes) ---------------------- */
+
+.dov-divider {
+	display: block;
+	width: var(--dov-divider-width, 2px);
+	height: var(--dov-divider-height, 28px);
+	align-self: center;
+	background: linear-gradient(
+		var(--dov-divider-color, var(--dov-accent-color)) 0,
+		var(--dov-divider-color, var(--dov-accent-color)) 42%,
+		transparent 42%,
+		transparent 58%,
+		var(--dov-divider-color, var(--dov-accent-color)) 58%,
+		var(--dov-divider-color, var(--dov-accent-color)) 100%
+	);
+}
+
+/* En-tête : le trait sert de séparateur entre le logo et le menu */
+.dov-divider.is-header-divider {
+	--dov-divider-height: 26px;
+}
+
+/* Cartes bénéfice (page d'accueil, section "Cinq raisons") : le trait
+   remplace le bandeau horizontal utilisé initialement en haut de carte. */
+.benefit-card {
+	position: relative;
+}
+
+.benefit-card::before {
+	content: "";
+	position: absolute;
+	left: -1px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 3px;
+	height: 64%;
+	border-radius: 2px;
+	background: linear-gradient(
+		var(--dov-accent-color) 0,
+		var(--dov-accent-color) 44%,
+		transparent 44%,
+		transparent 56%,
+		var(--dov-accent-color) 56%,
+		var(--dov-accent-color) 100%
+	);
+}
