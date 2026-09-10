@@ -28,6 +28,10 @@
 
 :root {
 	--dov-accent-color: var(--wp--preset--color--teal);
+	/* Piste B — Précision Numérique (nuancier 2026, provisoire) : réservée
+	   aux petites touches "instrument technique", ex. le soulignement du
+	   menu ci-dessous. Voir design-system-web-v1.md, Nuanciers 2026. */
+	--dov-accent-color-b: var(--wp--preset--color--cyan-technique);
 }
 
 /* --- Anneau fendu (portraits) ------------------------------------------ */
@@ -206,4 +210,51 @@
 	.dov-hero-marks {
 		display: none;
 	}
+}
+
+
+/* --- Navigation principale : capitales fines, soulignement fendu --------
+   Retouche du 10.09.2026, demande de Marc : lettres capitales, graisse un
+   peu plus fine qu'avant (600 → 500), et un filet de soulignement qui
+   reprend la fente D/O du logo plutôt qu'un simple trait plein — même
+   technique que .dov-divider (linear-gradient avec une coupure au milieu),
+   appliquée à l'horizontale. Couleur du filet : piste B (cyan technique),
+   comme touche "instrument de précision" plutôt que la couleur d'accent
+   habituelle — discret sur fond blanc puisqu'il n'apparaît qu'au survol. */
+
+.dov-nav-link {
+	position: relative;
+	color: inherit;
+	transition: color 0.2s ease;
+}
+
+.dov-nav-link:hover,
+.dov-nav-link:focus-visible {
+	color: var(--dov-accent-color);
+}
+
+.dov-nav-link::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -6px;
+	height: 2px;
+	background: linear-gradient(
+		to right,
+		var(--dov-accent-color-b) 0,
+		var(--dov-accent-color-b) 42%,
+		transparent 42%,
+		transparent 58%,
+		var(--dov-accent-color-b) 58%,
+		var(--dov-accent-color-b) 100%
+	);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.25s ease;
+}
+
+.dov-nav-link:hover::after,
+.dov-nav-link:focus-visible::after {
+	transform: scaleX(1);
 }
