@@ -12,8 +12,15 @@
   </div>
   <!-- /wp:group -->
 
-  <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"32px"}}} -->
-  <div class="wp-block-group">
+  <!-- Bouton burger (mobile uniquement, voir assets/css/extra.css et assets/js/nav.js) -->
+  <!-- wp:html -->
+  <button class="dov-burger" aria-expanded="false" aria-controls="dov-mobile-nav" aria-label="Ouvrir le menu">
+    <span></span><span></span><span></span>
+  </button>
+  <!-- /wp:html -->
+
+  <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"32px"}},"className":"dov-mobile-nav"} -->
+  <div class="wp-block-group dov-mobile-nav" id="dov-mobile-nav">
     <!-- wp:paragraph {"fontSize":"small","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em","fontWeight":"500"}}} -->
     <p class="has-small-font-size" style="text-transform:uppercase;letter-spacing:0.08em;font-weight:500"><a href="/" class="dov-nav-link">Accueil</a></p>
     <!-- /wp:paragraph -->

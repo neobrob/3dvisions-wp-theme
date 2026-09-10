@@ -136,4 +136,14 @@ add_action('wp_enqueue_scripts', function () {
 		[],
 		file_exists($path) ? filemtime($path) : null
 	);
+
+	// Menu mobile (burger + sous-menus tactiles) — voir assets/js/nav.js.
+	$nav_path = get_theme_file_path('assets/js/nav.js');
+	wp_enqueue_script(
+		'3dvisions-nav',
+		get_theme_file_uri('assets/js/nav.js'),
+		[],
+		file_exists($nav_path) ? filemtime($nav_path) : null,
+		true
+	);
 });
