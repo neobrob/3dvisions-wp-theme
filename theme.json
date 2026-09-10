@@ -79,7 +79,8 @@
       "heading": {
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--bai-jamjuree)",
-          "fontWeight": "700"
+          "fontWeight": "700",
+          "lineHeight": "1.15"
         },
         "color": { "text": "var(--wp--preset--color--teal-900)" }
       },
