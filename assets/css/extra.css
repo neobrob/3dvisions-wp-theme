@@ -225,6 +225,11 @@
 .dov-nav-link {
 	position: relative;
 	color: inherit;
+	/* Le soulignement par défaut du navigateur suit la ligne de base du
+	   texte, qui se décale légèrement sur les liens avec caret (celui-ci est
+	   en inline-block) : on ne garde que le filet fendu ::after ci-dessous,
+	   positionné par rapport à la boîte du lien et donc toujours aligné. */
+	text-decoration: none;
 	transition: color 0.2s ease;
 }
 
