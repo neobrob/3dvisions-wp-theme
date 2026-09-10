@@ -113,11 +113,15 @@
 }
 
 /* --- Repères de mesure (hero) -------------------------------------------
-   "Lignes de mesure fines sur la photo, avec coordonnées" — voir
-   design-system-web-v1.md, section Signature graphique, exemple Hero.
-   Posé en overlay absolu par-dessus le wp:cover du hero (photo ou fond
-   uni) : deux coins de cadrage façon viseur, une règle graduée, une
-   coordonnée GPS. Discret (opacité réduite), n'interfère pas avec le texte. */
+   Reprend fidèlement l'exemple "Hero" de l'artboard Signature graphique du
+   design system (design-system-web-v1.md) : une ligne verticale fine posée
+   sur la photo, avec une graduation discrète et une coordonnée réelle — le
+   même principe de fente nette que le D/O du logo, décliné en instrument de
+   mesure plutôt qu'en décor abstrait (coins de viseur + règle horizontale,
+   première tentative du 10.09, qui perdait cet effet de ligne verticale).
+   Le hero WordPress centre son bloc de texte (contentSize 600px) : les deux
+   lignes encadrent donc ce bloc de façon symétrique plutôt que de longer un
+   bord, pour rester cohérentes quelle que soit la largeur d'écran. */
 
 .dov-hero-marks {
 	position: absolute;
@@ -131,60 +135,75 @@
 	z-index: 2;
 }
 
-.dov-corner {
+.dov-hero-line {
 	position: absolute;
-	width: 44px;
-	height: 44px;
-	opacity: 0.85;
+	top: 0;
+	bottom: 0;
+	width: 1px;
+	background: currentColor;
 }
 
-.dov-corner.is-top-left {
-	top: 32px;
-	left: 32px;
-	border-top: 2px solid currentColor;
-	border-left: 2px solid currentColor;
+/* Bloc de texte du hero : contentSize 600px, centré. On encadre ce bloc de
+   part et d'autre, avec une marge de respiration. */
+.dov-hero-line.is-primary {
+	left: calc(50% - 336px);
+	opacity: 0.5;
 }
 
-.dov-corner.is-bottom-right {
-	bottom: 32px;
-	right: 32px;
-	border-bottom: 2px solid currentColor;
-	border-right: 2px solid currentColor;
+.dov-hero-line.is-secondary {
+	left: calc(50% + 336px);
+	opacity: 0.28;
 }
 
-.dov-ruler {
+.dov-hero-tick {
 	position: absolute;
-	top: 32px;
-	right: 32px;
-	width: 220px;
-	height: 2px;
-	opacity: 0.6;
-	background-image: repeating-linear-gradient(
-		to right,
-		currentColor 0,
-		currentColor 2px,
-		transparent 2px,
-		transparent 22px
-	);
+	left: -9px;
+	width: 18px;
+	height: 1px;
+	background: currentColor;
+}
+
+.dov-hero-tick.is-top {
+	top: 40px;
+}
+
+.dov-hero-tick.is-bottom {
+	bottom: 48px;
 }
 
 .dov-coord {
 	position: absolute;
-	bottom: 32px;
-	left: 88px;
+	top: 40px;
+	left: calc(50% - 336px + 14px);
 	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 	font-size: 13px;
 	font-weight: 600;
 	letter-spacing: 0.06em;
-	opacity: 0.9;
+	opacity: 0.85;
 	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+	white-space: nowrap;
 }
 
-@media (max-width: 600px) {
-	.dov-ruler {
+/* En dessous de 900px, le bloc de texte peut approcher la pleine largeur :
+   les lignes symétriques ne tiendraient plus. On repasse sur une seule
+   ligne, calée à gauche façon marge de page plutôt qu'encadrement. */
+@media (max-width: 900px) {
+	.dov-hero-line.is-secondary {
 		display: none;
 	}
+	.dov-hero-line.is-primary {
+		left: 24px;
+	}
 	.dov-coord {
-		left: 32px;
+		left: 44px;
+		top: 24px;
+	}
+}
+
+/* Hero bas et texte sur plusieurs lignes en mobile : le motif devient plus
+   gênant que lisible, on le retire proprement. */
+@media (max-width: 560px) {
+	.dov-hero-marks {
+		display: none;
 	}
 }
