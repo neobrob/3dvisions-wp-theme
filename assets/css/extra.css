@@ -226,6 +226,176 @@
 	}
 }
 
+/* --- Boutons : la fente en mouvement ------------------------------------
+ * Système de boutons interactifs qui porte la signature D/O jusque dans
+ * l'interaction (survol + clic), documenté dans design-system-web-v1.md
+ * (artboard "Boutons — la fente en mouvement", 10.09.2026) et exploré
+ * dans l'artifact "La fente en mouvement".
+ *
+ * Un seul socle partagé (.dov-btn__curtain + .dov-btn__edge) : un rideau
+ * se ferme d'un bord à l'autre au survol, jamais depuis le centre, porté
+ * par une arête cyan qui le précède. Les trois variantes ne diffèrent que
+ * par un détail secondaire — jamais par la mécanique de remplissage.
+ *
+ *   .dov-btn--obturateur — bouton primaire (teal), se soulève au survol.
+ *   .dov-btn--volet       — bouton secondaire (stone/blanc), sans fioriture.
+ *   .dov-btn--contour     — bouton fantôme (outline), un tick remplace
+ *                            la flèche et s'étire au survol.
+ *
+ * Appliqué directement sur les liens .wp-block-button__link existants,
+ * en plus de leurs classes de couleur d'origine (has-teal-background-color,
+ * etc.) — celles-ci restent pour la compatibilité éditeur, .dov-btn
+ * prend le dessus sur l'apparence visuelle.
+ */
+
+.dov-btn {
+	position: relative;
+	isolation: isolate;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	overflow: hidden;
+	border-radius: 4px;
+	padding: 15px 32px;
+	font-size: 0.8125rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.dov-btn:focus-visible {
+	outline: 2px solid var(--dov-accent-color-b);
+	outline-offset: 3px;
+}
+
+.dov-btn__label {
+	position: relative;
+	z-index: 2;
+}
+
+.dov-btn__curtain {
+	position: absolute;
+	z-index: 1;
+	inset: 0;
+	clip-path: inset(0 100% 0 0);
+	transition: clip-path 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.dov-btn:hover .dov-btn__curtain {
+	clip-path: inset(0 0 0 0);
+}
+
+.dov-btn__edge {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 3px;
+	background: var(--dov-accent-color-b);
+	opacity: 0;
+	box-shadow: 0 0 9px 1px var(--dov-accent-color-b);
+	transition: left 0.4s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.12s ease;
+}
+
+.dov-btn:hover .dov-btn__edge {
+	left: calc(100% - 3px);
+	opacity: 1;
+}
+
+.dov-btn.is-confirming .dov-btn__edge {
+	box-shadow: 0 0 16px 3px var(--dov-accent-color-b);
+}
+
+/* 01 — Obturateur (primaire) */
+
+.dov-btn--obturateur {
+	background: var(--wp--preset--color--teal);
+	color: var(--wp--preset--color--white);
+	box-shadow: 0 1px 2px rgba(11, 55, 67, 0.18);
+	transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.dov-btn--obturateur .dov-btn__curtain {
+	background: var(--wp--preset--color--teal-900);
+}
+
+.dov-btn--obturateur:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 14px 24px rgba(11, 55, 67, 0.28);
+	color: var(--wp--preset--color--white);
+}
+
+.dov-btn--obturateur:active {
+	transform: translateY(-1px) scale(0.97);
+	transition-duration: 0.08s;
+}
+
+/* 02 — Volet (secondaire) */
+
+.dov-btn--volet {
+	transition: color 0.34s ease 0.1s, transform 0.2s ease;
+}
+
+.dov-btn--volet .dov-btn__curtain {
+	background: var(--wp--preset--color--teal-900);
+}
+
+.dov-btn--volet:hover {
+	color: var(--wp--preset--color--white);
+}
+
+.dov-btn--volet:active {
+	transform: scale(0.97);
+	transition-duration: 0.08s;
+}
+
+/* 03 — Rideau (fantôme / outline) */
+
+.dov-btn--contour {
+	background: transparent;
+	border: 1.5px solid currentColor;
+	padding: 13.5px 30.5px;
+	transition: color 0.36s ease 0.1s, transform 0.2s ease;
+}
+
+.dov-btn--contour .dov-btn__curtain {
+	background: var(--wp--preset--color--white);
+}
+
+.dov-btn--contour:hover {
+	color: var(--wp--preset--color--teal-900);
+}
+
+.dov-btn--contour:active {
+	transform: scale(0.97);
+	transition-duration: 0.08s;
+}
+
+.dov-btn__tick {
+	position: relative;
+	z-index: 2;
+	width: 10px;
+	height: 2px;
+	background: currentColor;
+	transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+		transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease;
+}
+
+.dov-btn--contour:hover .dov-btn__tick {
+	width: 18px;
+	transform: translateX(3px);
+	background: var(--wp--preset--color--teal-500);
+}
+
+.dov-btn--contour.is-confirming .dov-btn__tick {
+	width: 22px;
+	transform: translateX(3px) scaleY(1.6);
+	background: var(--dov-accent-color-b);
+}
+
 /* --- Repères de mesure (hero) -------------------------------------------
    Reprend fidèlement l'exemple "Hero" de l'artboard Signature graphique du
    design system (design-system-web-v1.md) : une ligne verticale fine posée

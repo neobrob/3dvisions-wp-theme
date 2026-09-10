@@ -146,4 +146,14 @@ add_action('wp_enqueue_scripts', function () {
 		file_exists($nav_path) ? filemtime($nav_path) : null,
 		true
 	);
+
+	// Boutons signature (flash de confirmation au clic) — voir assets/js/buttons.js.
+	$buttons_path = get_theme_file_path('assets/js/buttons.js');
+	wp_enqueue_script(
+		'3dvisions-buttons',
+		get_theme_file_uri('assets/js/buttons.js'),
+		[],
+		file_exists($buttons_path) ? filemtime($buttons_path) : null,
+		true
+	);
 });
