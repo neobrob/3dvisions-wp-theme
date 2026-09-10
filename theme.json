@@ -14,7 +14,9 @@
         { "slug": "teal-500", "name": "Teal 500", "color": "#2C7E93" },
         { "slug": "teal-300", "name": "Teal 300", "color": "#9EC8D2" },
         { "slug": "teal-100", "name": "Teal 100 (clair)", "color": "#E4F0F2" },
-        { "slug": "accent", "name": "Accent (provisoire — terre cuite, piste A)", "color": "#B85C38" },
+        { "slug": "indigo-teal", "name": "Indigo-teal (piste B — fond sombre viewer)", "color": "#12303F" },
+        { "slug": "quasi-noir", "name": "Quasi-noir (piste B — viewer)", "color": "#14181A" },
+        { "slug": "cyan-technique", "name": "Cyan technique (piste B — accent UI uniquement, jamais en texte)", "color": "#2FD9E8" },
         { "slug": "stone", "name": "Stone (neutre)", "color": "#F2EEE7" },
         { "slug": "ink", "name": "Encre (texte)", "color": "#1D1D2B" },
         { "slug": "white", "name": "Blanc", "color": "#FFFFFF" }
@@ -62,7 +64,7 @@
     },
     "border": { "radius": true, "width": true, "color": true },
     "custom": {
-      "note-nuancier": "Palette 'accent' provisoire (terre cuite, piste A) — 3 pistes de nuancier 2026 encore en discussion, voir design-system-web-v1.md. À remplacer partout ici une fois le choix fait."
+      "note-nuancier": "Piste B — Précision Numérique appliquée le 10.09.2026 (choix provisoire, à confirmer). Le teal marketing (teal, teal-900, etc.) ne change pas — B ajoute seulement indigo-teal / quasi-noir / cyan-technique pour les futurs modules techniques (visionneuse 3D, points de scan, loupe de zoom). Le cyan ne doit jamais servir de couleur de texte courant (contraste 1.7:1 sur blanc, insuffisant) : décoratif/UI uniquement, sur fond sombre. Voir design-system-web-v1.md pour les 2 autres pistes écartées pour l'instant (A — terre cuite, C — prune)."
     }
   },
   "styles": {
