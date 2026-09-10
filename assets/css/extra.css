@@ -275,9 +275,18 @@
 	position: relative;
 	display: inline-flex;
 	align-items: center;
-	/* comble l'espace entre le lien et le panneau : la zone de survol reste
-	   continue, le sous-menu ne se ferme pas quand la souris descend. */
+	/* Comble l'espace entre le lien et le panneau (la zone de survol reste
+	   continue, le sous-menu ne se ferme pas quand la souris descend) —
+	   en haut ET en bas à parts égales : un padding asymétrique (bas
+	   seulement, version initiale) décale le item hors de l'alignement
+	   flex de la ligne de menu par rapport aux liens simples (Accueil,
+	   Réalisations...), qui eux n'ont pas ce padding. Repéré en comparant
+	   la position réelle du texte avec/sans ce correctif sur le site en
+	   direct : symétrique, le texte retombe pile sur la même ligne de
+	   base que les autres liens. */
+	padding-top: 14px;
 	padding-bottom: 14px;
+	margin-top: -14px;
 	margin-bottom: -14px;
 }
 
