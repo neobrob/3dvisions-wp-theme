@@ -153,6 +153,18 @@
 	);
 }
 
+/* Fix : aligner le titre sur le TEXTE du surtitre, pas sur le trait fendu
+   (10.09.2026). Le padding-left de .dov-kicker (13px) laisse la place au
+   filet vertical mais décale d'autant le texte du surtitre par rapport au
+   titre qui le suit, lequel n'a lui aucun décalage : les deux ne partagent
+   plus le même bord gauche. On aligne le titre sur le texte du surtitre
+   plutôt que l'inverse, pour garder le filet bien au bord réel du bloc.
+   Ignoré si le surtitre est centré (.has-text-align-center) : dans ce cas
+   le bloc est déjà centré comme un tout, ce décalage ne s'y pose pas. */
+.dov-kicker:not(.has-text-align-center) + :is(h1, h2, h3, h4) {
+	margin-left: 13px;
+}
+
 /* --- Cartes témoignage : accent fendu en bordure gauche ------------------
    Section "Ils nous font confiance" (page d'accueil). Même vocabulaire que
    .benefit-card ci-dessus, mais en cyan technique plutôt qu'en couleur
