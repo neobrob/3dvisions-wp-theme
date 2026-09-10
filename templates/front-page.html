@@ -3,6 +3,17 @@
 <!-- wp:cover {"minHeight":70,"minHeightUnit":"vh","customOverlayColor":"#0b3743","dimRatio":100,"isDark":true,"align":"full"} -->
 <div class="wp-block-cover alignfull" style="min-height:70vh">
   <span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#0b3743"></span>
+
+  <!-- signature graphique — repères de mesure sur le hero (voir design-system-web-v1.md, exemple Hero). Discret, en overlay, ne bloque pas les clics (pointer-events:none). -->
+  <!-- wp:html -->
+  <div class="dov-hero-marks" aria-hidden="true">
+    <div class="dov-corner is-top-left"></div>
+    <div class="dov-corner is-bottom-right"></div>
+    <div class="dov-ruler"></div>
+    <div class="dov-coord">46.5197° N · 6.6323° E</div>
+  </div>
+  <!-- /wp:html -->
+
   <div class="wp-block-cover__inner-container">
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"600px"}} -->
     <div class="wp-block-group">
@@ -411,7 +422,7 @@
 </div>
 <!-- /wp:columns -->
 
-<!-- ÉQUIPE : portraits repris de la maquette existante (sb_team.jpg). Signature graphique — anneau fendu D/O implémenté en CSS/SVG (.dov-ring, voir assets/css/extra.css et design-system-web-v1.md) : la photo chargée est un simple portrait détouré, l'anneau est dessiné par-dessus, ce qui évite de refaire un fichier composité à chaque correction. Photos et noms à confirmer avec Vincent avant mise en ligne définitive — voir copie-page-a-propos.md pour les 5 membres de l'équipe identifiés. -->
+<!-- ÉQUIPE : silhouettes génériques provisoires (placeholder-N.png) en attendant les vraies photos confirmées par Vincent — voir copie-page-a-propos.md pour les 5 membres de l'équipe identifiés. Les vraies photos détourées (portrait-N-cutout.png, extraites de sb_team.jpg) restent dans le thème, prêtes à resservir dès que les photos/noms sont validés — il suffira de changer les 4 src ci-dessous. Signature graphique — anneau fendu D/O implémenté en CSS/SVG (.dov-ring, voir assets/css/extra.css et design-system-web-v1.md) : la photo chargée est une image normale, l'anneau est dessiné par-dessus, ce qui évite de refaire un fichier composité à chaque correction. -->
 <!-- wp:group {"align":"full","style":{"color":{"background":"#e4f0f2"},"spacing":{"padding":{"top":"64px","bottom":"64px"}},"margin":{"top":"56px"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull has-background" style="background-color:#e4f0f2;padding-top:64px;padding-bottom:64px;margin-top:56px">
   <!-- wp:group {"layout":{"type":"constrained"}} -->
@@ -432,25 +443,25 @@
   <div class="wp-block-group" style="margin-top:32px">
     <!-- wp:html -->
     <div class="dov-ring" style="--dov-ring-size:140px">
-      <img src="/wp-content/themes/3dvisions/assets/images/team/portrait-1-cutout.png" alt="Membre de l'équipe 3D Visions Designs" loading="lazy" />
+      <img src="/wp-content/themes/3dvisions/assets/images/team/placeholder-1.png" alt="Membre de l'équipe 3D Visions Designs (visuel provisoire)" loading="lazy" />
       <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" transform="rotate(-90 50 50)" stroke-dasharray="0 6.9 124.4 13.8 124.4 6.9"/></svg>
     </div>
     <!-- /wp:html -->
     <!-- wp:html -->
     <div class="dov-ring" style="--dov-ring-size:140px">
-      <img src="/wp-content/themes/3dvisions/assets/images/team/portrait-2-cutout.png" alt="Membre de l'équipe 3D Visions Designs" loading="lazy" />
+      <img src="/wp-content/themes/3dvisions/assets/images/team/placeholder-2.png" alt="Membre de l'équipe 3D Visions Designs (visuel provisoire)" loading="lazy" />
       <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" transform="rotate(-90 50 50)" stroke-dasharray="0 6.9 124.4 13.8 124.4 6.9"/></svg>
     </div>
     <!-- /wp:html -->
     <!-- wp:html -->
     <div class="dov-ring" style="--dov-ring-size:140px">
-      <img src="/wp-content/themes/3dvisions/assets/images/team/portrait-3-cutout.png" alt="Membre de l'équipe 3D Visions Designs" loading="lazy" />
+      <img src="/wp-content/themes/3dvisions/assets/images/team/placeholder-3.png" alt="Membre de l'équipe 3D Visions Designs (visuel provisoire)" loading="lazy" />
       <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" transform="rotate(-90 50 50)" stroke-dasharray="0 6.9 124.4 13.8 124.4 6.9"/></svg>
     </div>
     <!-- /wp:html -->
     <!-- wp:html -->
     <div class="dov-ring" style="--dov-ring-size:140px">
-      <img src="/wp-content/themes/3dvisions/assets/images/team/portrait-4-cutout.png" alt="Membre de l'équipe 3D Visions Designs" loading="lazy" />
+      <img src="/wp-content/themes/3dvisions/assets/images/team/placeholder-4.png" alt="Membre de l'équipe 3D Visions Designs (visuel provisoire)" loading="lazy" />
       <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" transform="rotate(-90 50 50)" stroke-dasharray="0 6.9 124.4 13.8 124.4 6.9"/></svg>
     </div>
     <!-- /wp:html -->

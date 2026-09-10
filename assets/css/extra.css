@@ -16,6 +16,12 @@
  *                   pour les contextes denses (en-tête, séparateurs,
  *                   bordures de carte) où un anneau serait disproportionné.
  *
+ *   .dov-hero-marks — repères de mesure (coins de cadrage + règle graduée +
+ *                   coordonnées), pour l'usage "grand format photo" du
+ *                   même principe (voir exemple Hero, design-system-web-v1.md) :
+ *                   pas la fente D/O elle-même, mais le même vocabulaire
+ *                   d'instrument de précision, en évidence sur le hero.
+ *
  * Couleur et épaisseur pilotées par variables CSS pour rester alignées sur
  * theme.json sans dupliquer les couleurs ici.
  */
@@ -104,4 +110,74 @@
 		var(--dov-accent-color) 56%,
 		var(--dov-accent-color) 100%
 	);
+}
+
+/* --- Repères de mesure (hero) -------------------------------------------
+   "Lignes de mesure fines sur la photo, avec coordonnées" — voir
+   design-system-web-v1.md, section Signature graphique, exemple Hero.
+   Posé en overlay absolu par-dessus le wp:cover du hero (photo ou fond
+   uni) : deux coins de cadrage façon viseur, une règle graduée, une
+   coordonnée GPS. Discret (opacité réduite), n'interfère pas avec le texte. */
+
+.dov-hero-marks {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	color: var(--dov-hero-marks-color, var(--wp--preset--color--teal-300));
+}
+
+.dov-corner {
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	opacity: 0.55;
+}
+
+.dov-corner.is-top-left {
+	top: 28px;
+	left: 28px;
+	border-top: 1.5px solid currentColor;
+	border-left: 1.5px solid currentColor;
+}
+
+.dov-corner.is-bottom-right {
+	bottom: 28px;
+	right: 28px;
+	border-bottom: 1.5px solid currentColor;
+	border-right: 1.5px solid currentColor;
+}
+
+.dov-ruler {
+	position: absolute;
+	top: 28px;
+	right: 28px;
+	width: 180px;
+	height: 1px;
+	opacity: 0.4;
+	background-image: repeating-linear-gradient(
+		to right,
+		currentColor 0,
+		currentColor 1px,
+		transparent 1px,
+		transparent 24px
+	);
+}
+
+.dov-coord {
+	position: absolute;
+	bottom: 28px;
+	left: 66px;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	font-size: 11px;
+	letter-spacing: 0.04em;
+	opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+	.dov-ruler {
+		display: none;
+	}
+	.dov-coord {
+		left: 28px;
+	}
 }
