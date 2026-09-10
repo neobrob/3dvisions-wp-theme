@@ -325,7 +325,10 @@
 .dov-btn--obturateur:hover {
 	transform: translateY(-3px);
 	box-shadow: 0 14px 24px rgba(11, 55, 67, 0.28);
-	color: var(--wp--preset--color--white);
+	/* !important : WordPress ajoute déjà !important à .has-white-color
+	   (classe générée depuis theme.json) — sans ça, cette règle perd
+	   systématiquement face à elle. */
+	color: var(--wp--preset--color--white) !important;
 }
 
 .dov-btn--obturateur:active {
@@ -344,7 +347,11 @@
 }
 
 .dov-btn--volet:hover {
-	color: var(--wp--preset--color--white);
+	/* !important : idem — .has-teal-900-color / .has-ink-color sont
+	   générées par WordPress avec !important, elles gardaient sinon la
+	   main sur la couleur de texte pendant que le rideau sombre balaie
+	   par-dessous, rendant le texte illisible au survol. */
+	color: var(--wp--preset--color--white) !important;
 }
 
 .dov-btn--volet:active {
@@ -366,7 +373,10 @@
 }
 
 .dov-btn--contour:hover {
-	color: var(--wp--preset--color--teal-900);
+	/* !important : idem — .has-white-color (générée par WordPress avec
+	   !important) gardait sinon la main, texte blanc sur rideau blanc
+	   au survol. */
+	color: var(--wp--preset--color--teal-900) !important;
 }
 
 .dov-btn--contour:active {
