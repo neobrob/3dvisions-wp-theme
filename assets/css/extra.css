@@ -226,6 +226,33 @@
 	}
 }
 
+/* --- Filet de secours : largeur des sections "wide" ---------------------
+ * Constat (10.09.2026) : sur new.3dvisions.ch, WordPress n'émet pas la
+ * règle `.wp-site-blocks > .alignwide { max-width: ... }` qu'il génère
+ * normalement à partir de theme.json (wideSize: 1200px) — seules les
+ * règles alignleft/alignright/aligncenter du même groupe sont présentes.
+ * add_theme_support('align-wide') et theme.json sont pourtant corrects ;
+ * tout pointe vers un cache de styles globaux WordPress resté figé sur un
+ * état antérieur du thème plutôt qu'un problème dans nos fichiers (une
+ * simple re-sauvegarde dans Apparence → Éditeur → Styles devrait le
+ * régénérer côté serveur). En attendant, on pose nous-mêmes la règle
+ * manquante — elle correspond exactement à ce que WordPress est censé
+ * produire, donc sans risque si le cache se corrige de son côté (les deux
+ * règles seraient alors simplement identiques).
+ *
+ * Symptôme observé : toutes les sections "alignwide" (donc aussi les
+ * surtitres qu'elles contiennent) s'étalaient bord à bord sur toute la
+ * largeur de l'écran au lieu d'être centrées à 1200px — d'où l'impression
+ * de surtitre "décalé" alors que c'est toute la section qui avait perdu
+ * sa largeur normale.
+ */
+
+.wp-site-blocks > .alignwide {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* --- Boutons : la fente en mouvement ------------------------------------
  * Système de boutons interactifs qui porte la signature D/O jusque dans
  * l'interaction (survol + clic), documenté dans design-system-web-v1.md
