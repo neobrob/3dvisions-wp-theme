@@ -116,6 +116,116 @@
 	);
 }
 
+/* --- Surtitres : filet vertical fendu avant le label --------------------
+   Retouche du 10.09.2026 (analyse "Extensions signature D/O") : chaque
+   surtitre en capitales (PRESTATION, SECTEUR, L'ÉQUIPE...) reçoit la même
+   fente que le logo et l'en-tête, mais à la verticale plutôt qu'en tiret
+   horizontal — on garde la verticalité de la signature plutôt que d'en
+   faire un élément décoratif indépendant. currentColor reprend la couleur
+   de texte déjà posée sur chaque surtitre (teal, teal-300, cyan-technique
+   selon le fond), donc aucune variable de couleur à gérer ici.
+   display:inline-block (plutôt que le bloc par défaut du <p>) : le filet
+   doit coller au texte, y compris quand le surtitre est centré
+   (has-text-align-center) — sinon il resterait plaqué à gauche du bloc
+   pendant que le texte se centre ailleurs. */
+
+.dov-kicker {
+	position: relative;
+	display: inline-block;
+	padding-left: 13px;
+}
+
+.dov-kicker::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 2px;
+	height: 1.35em;
+	background: linear-gradient(
+		currentColor 0,
+		currentColor 40%,
+		transparent 40%,
+		transparent 60%,
+		currentColor 60%,
+		currentColor 100%
+	);
+}
+
+/* --- Cartes témoignage : accent fendu en bordure gauche ------------------
+   Section "Ils nous font confiance" (page d'accueil). Même vocabulaire que
+   .benefit-card ci-dessus, mais en cyan technique plutôt qu'en couleur
+   d'accent, pour ne pas confondre les deux familles de carte au survol de
+   l'œil. Positionné dans la marge intérieure existante (padding-left:24px
+   posé en style inline par Gutenberg) plutôt que d'agrandir cette marge :
+   pas besoin de !important, et le texte ne bouge pas. */
+
+.dov-testimonial {
+	position: relative;
+}
+
+.dov-testimonial::before {
+	content: "";
+	position: absolute;
+	left: 10px;
+	top: 14px;
+	bottom: 14px;
+	width: 3px;
+	border-radius: 2px;
+	background: linear-gradient(
+		var(--dov-accent-color-b) 0,
+		var(--dov-accent-color-b) 40%,
+		transparent 40%,
+		transparent 60%,
+		var(--dov-accent-color-b) 60%,
+		var(--dov-accent-color-b) 100%
+	);
+}
+
+/* --- Bandeaux CTA : fil vertical entre le texte et le bouton -------------
+   Bandeau teal plein (« Un projet de relevé numérique ? » et variantes,
+   bas de page). Le bandeau porte déjà tout le poids visuel de la page
+   (couleur pleine, gros bouton) : le fil reste volontairement quasi
+   invisible (1px, opacité réduite) — une respiration qui a une forme,
+   plutôt qu'un vrai accent. Repasse à zéro sous 680px : au flexWrap, le
+   bouton tombe sur sa propre ligne et le fil n'aurait plus de sens entre
+   les deux blocs. */
+
+.dov-cta > .wp-block-buttons {
+	position: relative;
+	margin-left: 12px;
+	padding-left: 24px;
+}
+
+.dov-cta > .wp-block-buttons::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 10%;
+	bottom: 10%;
+	width: 1px;
+	background: linear-gradient(
+		var(--dov-accent-color-b) 0,
+		var(--dov-accent-color-b) 38%,
+		transparent 38%,
+		transparent 62%,
+		var(--dov-accent-color-b) 62%,
+		var(--dov-accent-color-b) 100%
+	);
+	opacity: 0.5;
+}
+
+@media (max-width: 680px) {
+	.dov-cta > .wp-block-buttons {
+		margin-left: 0;
+		padding-left: 0;
+	}
+	.dov-cta > .wp-block-buttons::before {
+		display: none;
+	}
+}
+
 /* --- Repères de mesure (hero) -------------------------------------------
    Reprend fidèlement l'exemple "Hero" de l'artboard Signature graphique du
    design system (design-system-web-v1.md) : une ligne verticale fine posée
