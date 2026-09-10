@@ -442,8 +442,17 @@ header {
 	/* Le groupe Gutenberg qui contient les liens + le bouton Contact devient
 	   le panneau mobile : masqué par défaut, affiché en pleine largeur sous
 	   l'en-tête quand le burger est actionné. */
+	/* display:none/flex sont en !important pour la même raison que
+	   flex-direction/align-items/gap ci-dessous : le bloc Group de
+	   Gutenberg génère sa propre règle CSS (layout flex du bloc,
+	   .wp-container-core-group-is-layout-xxxxx) avec la même spécificité
+	   qu'un simple sélecteur de classe — sans !important, cette règle
+	   générée l'emporte selon l'ordre d'impression dans le <head> et le
+	   panneau mobile reste visible en permanence (display:flex) quel que
+	   soit l'état de .is-open. Repéré et corrigé après vérification sur
+	   le site réel (le X du burger ne fermait pas le panneau). */
 	.dov-mobile-nav {
-		display: none;
+		display: none !important;
 		position: absolute;
 		top: 100%;
 		left: 0;
@@ -459,7 +468,7 @@ header {
 	}
 
 	.dov-mobile-nav.is-open {
-		display: flex;
+		display: flex !important;
 	}
 
 	.dov-mobile-nav .dov-nav-item,
