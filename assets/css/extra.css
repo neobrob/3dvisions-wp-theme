@@ -281,11 +281,20 @@
 	margin-bottom: -14px;
 }
 
+/* Triangle en CSS pur (bordures) plutôt que le caractère unicode ▾ :
+   à 9px, ce glyphe rend comme un petit point flou selon la police système
+   (repéré en vérifiant en direct sur new.3dvisions.ch) — un triangle en
+   bordures reste net à n'importe quelle taille et sur n'importe quel OS. */
 .dov-nav-caret {
 	display: inline-block;
-	margin-left: 5px;
-	font-size: 9px;
+	margin-left: 6px;
+	width: 0;
+	height: 0;
+	border-left: 3.5px solid transparent;
+	border-right: 3.5px solid transparent;
+	border-top: 4.5px solid currentColor;
 	opacity: 0.6;
+	vertical-align: middle;
 	transform: translateY(-1px);
 	transition: transform 0.2s ease;
 }
