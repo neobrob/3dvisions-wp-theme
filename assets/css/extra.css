@@ -124,6 +124,11 @@
 	inset: 0;
 	pointer-events: none;
 	color: var(--dov-hero-marks-color, #ffffff);
+	/* Le bloc Cover de WordPress pose son overlay de fond
+	   (.wp-block-cover__background) en z-index:1 : sans z-index
+	   explicite ici (auto), cet overlay passe devant nos repères
+	   malgré un ordre DOM ultérieur. On passe donc au-dessus. */
+	z-index: 2;
 }
 
 .dov-corner {
