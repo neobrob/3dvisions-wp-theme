@@ -62,10 +62,7 @@
       },
       "units": ["px", "%", "em", "rem", "vh", "vw"]
     },
-    "border": { "radius": true, "width": true, "color": true },
-    "custom": {
-      "note-nuancier": "Piste B — Précision Numérique appliquée le 10.09.2026 (choix provisoire, à confirmer). Le teal marketing (teal, teal-900, etc.) ne change pas — B ajoute seulement indigo-teal / quasi-noir / cyan-technique pour les futurs modules techniques (visionneuse 3D, points de scan, loupe de zoom). Le cyan ne doit jamais servir de couleur de texte courant (contraste 1.7:1 sur blanc, insuffisant) : décoratif/UI uniquement, sur fond sombre. Voir design-system-web-v1.md pour les 2 autres pistes écartées pour l'instant (A — terre cuite, C — prune)."
-    }
+    "border": { "radius": true, "width": true, "color": true }
   },
   "styles": {
     "color": {
