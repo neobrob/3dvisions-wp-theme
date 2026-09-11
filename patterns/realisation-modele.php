@@ -29,7 +29,7 @@
 <!-- wp:group {"templateLock":"all","layout":{"type":"constrained","contentSize":"760px"}} -->
 <div class="wp-block-group">
 
-<!-- wp:group {"style":{"spacing":{"blockGap":"4px"}},"layout":{"type":"flex","flexWrap":"wrap"},"className":"dov-brief"} -->
+<!-- wp:group {"className":"dov-brief"} -->
 <div class="wp-block-group dov-brief">
 <!-- wp:paragraph {"className":"dov-brief__item"} -->
 <p class="dov-brief__item"><strong>Client :</strong> à compléter (ou à retirer tout le bloc « En bref » si confidentiel)</p>
@@ -64,7 +64,7 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"dov-key-figures","style":{"spacing":{"margin":{"top":"40px","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
+<!-- wp:group {"className":"dov-key-figures","style":{"spacing":{"margin":{"top":"40px","bottom":"0"}}}} -->
 <div class="wp-block-group dov-key-figures" style="margin-top:40px">
 <!-- wp:group {"className":"dov-stat","layout":{"type":"constrained"}} -->
 <div class="wp-block-group dov-stat">
