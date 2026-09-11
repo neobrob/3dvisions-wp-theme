@@ -1221,3 +1221,58 @@ header {
 .dov-related-item__title a:focus-visible {
 	text-decoration: underline;
 }
+
+/* Carrousel "Réalisations liées" sur les pages Prestation/Secteur —
+   alimenté par une boucle wp:query (inherit) filtrée automatiquement
+   sur la taxonomie de l'archive courante ; même mécanique de
+   défilement horizontal que la galerie "En images" d'une page
+   Réalisation (.dov-gallery-scroll). */
+
+.dov-realisation-carousel-query {
+	margin-top: 28px;
+}
+
+.dov-realisation-carousel.wp-block-post-template {
+	display: flex !important;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	gap: 20px;
+	margin: 0;
+	padding: 4px 4px 10px;
+	list-style: none;
+	-webkit-overflow-scrolling: touch;
+}
+
+.dov-realisation-carousel.wp-block-post-template > li {
+	flex: 0 0 auto;
+	width: min(78vw, 280px);
+	scroll-snap-align: start;
+	margin: 0;
+}
+
+.dov-realisation-carousel__media {
+	margin: 0 0 10px;
+}
+
+.dov-realisation-carousel__media img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border-radius: 8px;
+	display: block;
+}
+
+.dov-realisation-carousel__title {
+	margin: 0;
+}
+
+.dov-realisation-carousel__title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.dov-realisation-carousel__title a:hover,
+.dov-realisation-carousel__title a:focus-visible {
+	text-decoration: underline;
+}

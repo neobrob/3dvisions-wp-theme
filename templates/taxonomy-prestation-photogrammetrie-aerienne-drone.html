@@ -167,7 +167,7 @@
 </div>
 <!-- /wp:group -->
 
-<!-- Réalisations liées : section volontairement statique pour le moment — aucune Réalisation n'existe encore en base (connexion MCP côté contenu pas encore en place, voir architecture-technique-wordpress.md). À remplacer par un bloc wp:query filtré sur la taxonomie une fois du vrai contenu publié. -->
+<!-- Réalisations liées : boucle wp:query (inherit) filtrée automatiquement par la taxonomie de l'archive courante — chaque Réalisation publiée avec ce terme apparaît ici sans retouche du gabarit ; message de repli tant qu'aucune n'existe encore. -->
 <!-- wp:group {"align":"wide","style":{"color":{"background":"#e4f0f2"},"border":{"radius":"8px"},"spacing":{"padding":{"top":"40px","bottom":"40px"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide has-background" style="border-radius:8px;background-color:#e4f0f2;padding-top:40px;padding-bottom:40px">
   <!-- wp:group {"layout":{"type":"constrained","contentSize":"600px"}} -->
@@ -175,11 +175,27 @@
     <!-- wp:heading {"level":3,"textAlign":"center","fontSize":"large","textColor":"teal-900"} -->
     <h3 class="wp-block-heading has-text-align-center has-teal-900-color has-text-color has-large-font-size">Réalisations liées</h3>
     <!-- /wp:heading -->
-    <!-- wp:paragraph {"align":"center","fontSize":"small"} -->
-    <p class="has-text-align-center has-small-font-size">Les réalisations liées à cette prestation seront ajoutées ici au fur et à mesure des projets publiés.</p>
-    <!-- /wp:paragraph -->
-    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"14px"}}}} -->
-    <div class="wp-block-buttons" style="margin-top:14px">
+  </div>
+  <!-- /wp:group -->
+
+  <!-- wp:query {"queryId":0,"query":{"perPage":10,"pages":0,"offset":0,"postType":"realisation","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"excludeCurrent":null},"align":"wide","className":"dov-realisation-carousel-query"} -->
+  <div class="wp-block-query alignwide dov-realisation-carousel-query"><!-- wp:post-template {"className":"dov-realisation-carousel"} -->
+  <!-- wp:post-featured-image {"isLink":true,"className":"dov-realisation-carousel__media"} /-->
+
+  <!-- wp:post-title {"level":4,"isLink":true,"className":"dov-realisation-carousel__title","fontSize":"small"} /-->
+  <!-- /wp:post-template -->
+
+  <!-- wp:query-no-results -->
+  <!-- wp:paragraph {"align":"center","style":{"typography":{"textAlign":"center"}},"fontSize":"small"} -->
+  <p class="has-text-align-center has-small-font-size">Les réalisations liées à cette prestation seront ajoutées ici au fur et à mesure des projets publiés.</p>
+  <!-- /wp:paragraph -->
+  <!-- /wp:query-no-results --></div>
+  <!-- /wp:query -->
+
+  <!-- wp:group {"layout":{"type":"constrained","contentSize":"600px"}} -->
+  <div class="wp-block-group" style="text-align:center">
+    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"24px"}}}} -->
+    <div class="wp-block-buttons" style="margin-top:24px">
       <!-- wp:button {"backgroundColor":"white","textColor":"teal-900","fontSize":"small"} -->
       <div class="wp-block-button has-small-font-size"><a class="wp-block-button__link has-teal-900-color has-white-background-color has-text-color has-background wp-element-button dov-btn dov-btn--volet" href="/realisations/"><span class="dov-btn__curtain" aria-hidden="true"></span><span class="dov-btn__edge" aria-hidden="true"></span><span class="dov-btn__label">Voir nos réalisations</span></a></div>
       <!-- /wp:button -->
