@@ -54,6 +54,18 @@ add_action('init', function () {
 });
 
 /**
+ * Catégorie du pattern "Modèle de Réalisation" (11.09.2026) — voir
+ * patterns/realisation-modele.php. Le fichier de pattern se charge tout
+ * seul (convention native des thèmes block WordPress pour tout fichier
+ * posé dans patterns/), il ne manque que le nom affiché de sa catégorie.
+ */
+add_action('init', function () {
+	register_block_pattern_category('3dvisions-realisations', [
+		'label' => __('Réalisations — 3D Visions', '3dvisions'),
+	]);
+});
+
+/**
  * Polices auto-hébergées (Inter + Bai Jamjuree) déclarées dans theme.json.
  * Placer les fichiers .woff2 correspondants dans assets/fonts/ avant la mise en prod
  * (ne pas charger via Google Fonts CDN pour rester conforme RGPD/LPD suisse).

@@ -967,3 +967,204 @@ header {
 		text-align: center;
 	}
 }
+
+/* --- Page Réalisation : modules du modèle de contenu (11.09.2026) -------
+   Voir patterns/realisation-modele.php pour le contenu de départ (structure
+   pré-remplie à la création d'une nouvelle Réalisation, ou réinsérable
+   depuis l'inséreur de blocs → onglet Modèles). Ces classes habillent les
+   groupes de ce modèle ; elles ne servent à rien tant que le pattern n'est
+   pas utilisé, donc aucun risque pour les Réalisations déjà publiées.
+*/
+
+/* En bref : petite ligne de repères (client / lieu / durée), séparateurs
+   discrets plutôt que la fente D/O — réservée aux surtitres et accents plus
+   visibles, pas à une rangée d'étiquettes de service. */
+
+.dov-brief {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	row-gap: 6px;
+}
+
+.dov-brief__item {
+	position: relative;
+	margin: 0;
+	padding-right: 16px;
+	font-size: 0.8125rem;
+	color: var(--wp--preset--color--teal-900, #0b3743);
+}
+
+.dov-brief__item:not(:last-child)::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1px;
+	height: 13px;
+	background: #ccd2d2;
+}
+
+/* Carte client : même famille visuelle que .dov-testimonial (bordure fine,
+   coins arrondis) avec un accent plein en bordure gauche plutôt que la
+   fente — la fente reste réservée aux témoignages, pour que l'œil associe
+   ce motif précis à "parole du client" et pas à toute carte du site. */
+
+.dov-client-card {
+	border-left: 3px solid var(--wp--preset--color--teal) !important;
+}
+
+/* Chiffres clés : rangée de mini-statistiques. */
+
+.dov-key-figures {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 40px;
+	row-gap: 20px;
+}
+
+.dov-stat {
+	min-width: 110px;
+}
+
+.dov-stat__value {
+	margin: 0;
+	font-size: 1.75rem;
+	font-weight: 700;
+	line-height: 1.1;
+	color: var(--wp--preset--color--teal-900, #0b3743);
+	font-variant-numeric: tabular-nums;
+}
+
+.dov-stat__label {
+	margin: 4px 0 0;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #6b7676;
+}
+
+/* Timeline : reprend le principe du trait fendu du logo, à la verticale,
+   comme rail continu reliant chaque étape — plutôt qu'une numérotation
+   abstraite (01/02/03), le rail lui-même raconte "un process, une suite
+   d'étapes". Repère (le petit point) posé sur le rail à hauteur de
+   chaque titre d'étape. Simplifié sous 640px : rail et repères retirés
+   (comme .dov-hero-marks sous 560px, ailleurs dans ce fichier) — un
+   rail qui ne longe plus rien une fois les étapes empilées en colonne
+   perdrait son sens. */
+
+.dov-timeline {
+	position: relative;
+	padding-left: 28px;
+}
+
+.dov-timeline::before {
+	content: "";
+	position: absolute;
+	left: 5px;
+	top: 8px;
+	bottom: 8px;
+	width: 2px;
+	background: repeating-linear-gradient(
+		to bottom,
+		var(--dov-accent-color) 0,
+		var(--dov-accent-color) 10px,
+		transparent 10px,
+		transparent 16px
+	);
+}
+
+.dov-timeline-step {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 20px;
+	margin-bottom: 32px;
+}
+
+.dov-timeline-step:last-child {
+	margin-bottom: 0;
+}
+
+.dov-timeline-step::before {
+	content: "";
+	position: absolute;
+	left: -28px;
+	top: 8px;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: var(--wp--preset--color--white, #fff);
+	border: 2px solid var(--dov-accent-color);
+}
+
+.dov-timeline-step__media {
+	flex: 0 0 auto;
+	width: 180px;
+	margin: 0;
+}
+
+.dov-timeline-step__media img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border-radius: 8px;
+	display: block;
+}
+
+.dov-timeline-step__content {
+	flex: 1 1 240px;
+}
+
+.dov-timeline-step__content .wp-block-heading {
+	margin: 0 0 4px;
+}
+
+@media (max-width: 640px) {
+	.dov-timeline {
+		padding-left: 0;
+	}
+	.dov-timeline::before,
+	.dov-timeline-step::before {
+		display: none;
+	}
+	.dov-timeline-step__media {
+		width: 100%;
+	}
+}
+
+/* Galerie "carrousel" : le bloc Gallery natif de WordPress affiche une
+   grille (colonnes) — on la transforme en bande défilante horizontalement
+   (glisser au doigt, molette+shift, ou barre de défilement à la souris),
+   sans JS ni plugin. L'équipe utilise le bloc Gallery normalement (bouton
+   d'ajout d'images) ; c'est cette classe qui fait tout le travail visuel.
+   !important nécessaire : le bloc Gallery pose son propre display/gap en
+   style inline (nombre de colonnes, espacement) à la même spécificité
+   qu'une classe. */
+
+.dov-gallery-scroll.wp-block-gallery {
+	display: flex !important;
+	flex-wrap: nowrap !important;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	gap: 16px !important;
+	padding-bottom: 10px;
+	-webkit-overflow-scrolling: touch;
+}
+
+.dov-gallery-scroll.wp-block-gallery .wp-block-image {
+	flex: 0 0 auto;
+	width: min(78vw, 320px);
+	scroll-snap-align: start;
+	margin: 0;
+}
+
+.dov-gallery-scroll.wp-block-gallery .wp-block-image img {
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border-radius: 8px;
+}
