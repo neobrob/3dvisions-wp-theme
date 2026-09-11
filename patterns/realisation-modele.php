@@ -64,8 +64,8 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"dov-key-figures","style":{"spacing":{"margin":{"top":"40px","bottom":"0"}}}} -->
-<div class="wp-block-group dov-key-figures" style="margin-top:40px">
+<!-- wp:group {"className":"dov-key-figures"} -->
+<div class="wp-block-group dov-key-figures">
 <!-- wp:group {"className":"dov-stat","layout":{"type":"constrained"}} -->
 <div class="wp-block-group dov-stat">
 <!-- wp:paragraph {"className":"dov-stat__value"} -->
