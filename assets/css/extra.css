@@ -1035,6 +1035,7 @@ header {
 
 .dov-stat {
 	min-width: 110px;
+	margin-top: 0 !important;
 }
 
 .dov-stat__value {
@@ -1125,6 +1126,7 @@ header {
 
 .dov-timeline-step__content {
 	flex: 1 1 240px;
+	margin-top: 0 !important;
 }
 
 .dov-timeline-step__content .wp-block-heading {
@@ -1191,6 +1193,7 @@ header {
 
 .dov-related-item {
 	flex: 1 1 200px;
+	margin-top: 0 !important;
 }
 
 .dov-related-item__media {
