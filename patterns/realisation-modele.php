@@ -52,8 +52,8 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"dov-client-card","style":{"border":{"color":"#dde4e4","width":"1px","radius":"8px"},"spacing":{"padding":{"top":"24px","right":"28px","bottom":"24px","left":"28px"},"margin":{"top":"32px","bottom":"0"}}},"layout":{"type":"constrained","contentSize":"760px"}} -->
-<div class="wp-block-group dov-client-card" style="border-color:#dde4e4;border-width:1px;border-radius:8px;margin-top:32px;padding-top:24px;padding-right:28px;padding-bottom:24px;padding-left:28px">
+<!-- wp:group {"className":"dov-client-card","layout":{"type":"constrained","contentSize":"760px"}} -->
+<div class="wp-block-group dov-client-card">
 <!-- wp:paragraph {"fontSize":"small","textColor":"teal","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em","fontWeight":"600"}},"className":"dov-kicker"} -->
 <p class="has-teal-color has-text-color has-small-font-size dov-kicker">Le client</p>
 <!-- /wp:paragraph -->
@@ -193,8 +193,8 @@
 <figure class="wp-block-gallery has-nested-images columns-3 is-cropped dov-gallery-scroll"></figure>
 <!-- /wp:gallery -->
 
-<!-- wp:group {"className":"dov-testimonial","style":{"border":{"color":"#dde4e4","width":"1px","radius":"8px"},"spacing":{"padding":{"top":"22px","right":"24px","bottom":"22px","left":"24px"},"margin":{"top":"48px","bottom":"0"}}}} -->
-<div class="dov-testimonial wp-block-group" style="border-color:#dde4e4;border-width:1px;border-radius:8px;margin-top:48px;padding-top:22px;padding-right:24px;padding-bottom:22px;padding-left:24px">
+<!-- wp:group {"className":"dov-testimonial"} -->
+<div class="wp-block-group dov-testimonial">
 <!-- wp:paragraph {"fontSize":"small","style":{"typography":{"fontStyle":"italic"}}} -->
 <p class="has-small-font-size" style="font-style:italic">« Citation du client à compléter. »</p>
 <!-- /wp:paragraph -->
