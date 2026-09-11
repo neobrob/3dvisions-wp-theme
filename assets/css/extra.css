@@ -1018,7 +1018,7 @@ header {
 
 .dov-client-card {
 	border-left: 3px solid var(--wp--preset--color--teal) !important;
-	border-radius: 8px;
+	border-radius: 0 8px 8px 0;
 	margin-top: 32px;
 	padding: 24px 28px;
 }
@@ -1185,6 +1185,7 @@ header {
 .dov-related {
 	display: flex;
 	flex-wrap: wrap;
+	align-items: flex-start;
 	gap: 28px;
 }
 
