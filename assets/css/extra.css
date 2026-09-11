@@ -265,6 +265,36 @@
 	margin-right: auto;
 }
 
+/* --- Marge de sécurité horizontale (root padding) -----------------------
+ * Constat (11.09.2026, retour mobile) : le thème n'active pas
+ * `useRootPaddingAwareAlignments` dans theme.json et ne définit aucun
+ * `styles.spacing.padding` — WordPress n'ajoute donc AUCUN padding gauche/
+ * droite au conteneur du site. Sous la largeur "wide" (1200px, donc sur
+ * tout mobile/tablette et même certaines fenêtres desktop), les sections
+ * alignwide/alignfull font exactement la largeur de l'écran et leur texte
+ * touche les bords — d'où l'absence de marge à droite constatée sur
+ * téléphone.
+ *
+ * On reproduit ici le comportement root-padding-aware standard de
+ * WordPress : une marge de sécurité posée sur .wp-site-blocks, neutralisée
+ * par une marge négative équivalente sur les blocs alignfull (qui doivent
+ * au contraire aller bord à bord), puis réappliquée en padding sur ces
+ * mêmes blocs alignfull pour que LEUR contenu garde la même marge que le
+ * reste du site — qu'il s'agisse d'un wp:group ou d'un wp:cover (hero).
+ */
+
+.wp-site-blocks {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.wp-site-blocks > .alignfull {
+	margin-left: -20px;
+	margin-right: -20px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
 /* --- Boutons : la fente en mouvement ------------------------------------
  * Système de boutons interactifs qui porte la signature D/O jusque dans
  * l'interaction (survol + clic), documenté dans design-system-web-v1.md
