@@ -185,7 +185,7 @@
 <h2 class="wp-block-heading has-teal-900-color has-text-color has-large-font-size" style="margin-top:48px;margin-bottom:8px">En images</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"placeholder":"(Visible seulement en édition, jamais publié) Ajoutez vos photos normalement (bouton + dans la barre d'outils de la galerie) — elle se parcourt au doigt/à la molette comme un carrousel, aucun réglage supplémentaire à faire."} -->
+<!-- wp:paragraph {"placeholder":"(Visible seulement en édition, jamais publié) Ajoutez vos photos normalement (bouton + dans la barre d'outils de la galerie) — elle se parcourt au doigt/à la molette comme un carrousel. Le clic pour agrandir la photo est automatique, aucun réglage supplémentaire à faire."} -->
 <p></p>
 <!-- /wp:paragraph -->
 

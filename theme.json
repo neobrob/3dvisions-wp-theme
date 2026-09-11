@@ -7,6 +7,9 @@
       "contentSize": "800px",
       "wideSize": "1200px"
     },
+    "lightbox": {
+      "enabled": true
+    },
     "color": {
       "palette": [
         { "slug": "teal", "name": "Teal 3DV", "color": "#146074" },
