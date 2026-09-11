@@ -66,7 +66,12 @@
 			caret.setAttribute('role', 'button');
 
 			caret.addEventListener('click', function (event) {
-				if (window.innerWidth > 900) {
+				// Doit correspondre exactement au seuil du burger dans
+				// extra.css (@media max-width: 1150px) — un ancien seuil
+				// de 900px oublié ici rendait le tap inopérant entre
+				// 901 et 1150px (panneau mobile affiché, mais ce clic
+				// ignoré comme si on était encore en mode survol desktop).
+				if (window.innerWidth > 1150) {
 					return; // desktop : le sous-menu s'ouvre au survol
 				}
 				event.preventDefault();

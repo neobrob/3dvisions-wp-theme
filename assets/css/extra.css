@@ -898,8 +898,60 @@ header {
 		pointer-events: auto;
 	}
 
-	.dov-nav-item.is-submenu-open .dov-nav-caret {
-		transform: rotate(180deg);
+	/* Retouche du 11.09.2026, retour de Marc : sur le panneau mobile, la
+	   flèche du bureau (9x6px, pensée pour un simple survol souris) était
+	   quasi impossible à toucher au doigt. On garde le même principe visuel
+	   mais en plus grand (::before), et on ajoute une zone de tap invisible
+	   de 44px de côté (::after) très au-delà du dessin lui-même — la norme
+	   usuelle pour une cible tactile confortable. */
+	.dov-mobile-nav .dov-nav-caret {
+		position: relative;
+		width: 16px;
+		height: 16px;
+		margin-left: 12px;
+		border: 0;
+		flex-shrink: 0;
+	}
+
+	.dov-mobile-nav .dov-nav-caret::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 0;
+		height: 0;
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+		border-top: 8px solid currentColor;
+		transform: translate(-50%, -50%);
+		transition: transform 0.2s ease;
+	}
+
+	.dov-mobile-nav .dov-nav-caret::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 44px;
+		height: 44px;
+		transform: translate(-50%, -50%);
+	}
+
+	/* Sans ceci, la règle desktop .dov-nav-item:hover/:focus-within
+	   .dov-nav-caret (plus haut dans ce fichier, hors media query) fait
+	   tourner l'élément .dov-nav-caret LUI-MÊME de 180deg dès qu'il reçoit
+	   le focus au tap (tabindex=0, posé par nav.js) — en plus de la
+	   rotation posée juste au-dessus sur son ::before. Les deux tours se
+	   cumulent (180 + 180 = 360), donc la flèche a l'air immobile malgré
+	   l'ouverture réelle du sous-menu. On neutralise cette règle desktop
+	   ici, réservée au panneau mobile. */
+	.dov-mobile-nav .dov-nav-item:hover .dov-nav-caret,
+	.dov-mobile-nav .dov-nav-item:focus-within .dov-nav-caret {
+		transform: none;
+	}
+
+	.dov-nav-item.is-submenu-open .dov-nav-caret::before {
+		transform: translate(-50%, -50%) rotate(180deg);
 	}
 
 	.dov-submenu a {
