@@ -204,3 +204,53 @@
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
+
+<!-- wp:heading {"level":2,"fontSize":"large","textColor":"teal-900","style":{"spacing":{"margin":{"top":"48px","bottom":"8px"}}}} -->
+<h2 class="wp-block-heading has-teal-900-color has-text-color has-large-font-size" style="margin-top:48px;margin-bottom:8px">Projets associés</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"placeholder":"(Visible seulement en édition, jamais publié) 2 à 3 réalisations à mettre en avant suffisent. Pour chaque case : ouvrez l'image, utilisez l'icône de lien (chaîne) pour choisir la réalisation à relier, puis faites la même chose sur le titre en dessous. Dupliquez ou supprimez des cases selon le nombre voulu, ou retirez tout le bloc si aucune réalisation similaire n'existe encore."} -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"className":"dov-related"} -->
+<div class="wp-block-group dov-related">
+
+<!-- wp:group {"className":"dov-related-item"} -->
+<div class="wp-block-group dov-related-item">
+<!-- wp:image {"className":"dov-related-item__media","linkDestination":"custom"} -->
+<figure class="wp-block-image dov-related-item__media"><img alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"fontSize":"medium","textColor":"teal-900","className":"dov-related-item__title","style":{"typography":{"fontWeight":"700"}}} -->
+<p class="has-teal-900-color has-text-color has-medium-font-size dov-related-item__title" style="font-weight:700"><a href="#">Nom du projet — à compléter</a></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"dov-related-item"} -->
+<div class="wp-block-group dov-related-item">
+<!-- wp:image {"className":"dov-related-item__media","linkDestination":"custom"} -->
+<figure class="wp-block-image dov-related-item__media"><img alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"fontSize":"medium","textColor":"teal-900","className":"dov-related-item__title","style":{"typography":{"fontWeight":"700"}}} -->
+<p class="has-teal-900-color has-text-color has-medium-font-size dov-related-item__title" style="font-weight:700"><a href="#">Nom du projet — à compléter</a></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"dov-related-item"} -->
+<div class="wp-block-group dov-related-item">
+<!-- wp:image {"className":"dov-related-item__media","linkDestination":"custom"} -->
+<figure class="wp-block-image dov-related-item__media"><img alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"fontSize":"medium","textColor":"teal-900","className":"dov-related-item__title","style":{"typography":{"fontWeight":"700"}}} -->
+<p class="has-teal-900-color has-text-color has-medium-font-size dov-related-item__title" style="font-weight:700"><a href="#">Nom du projet — à compléter</a></p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+</div>
+<!-- /wp:group -->
