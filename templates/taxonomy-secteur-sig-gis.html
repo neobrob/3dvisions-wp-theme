@@ -1,0 +1,93 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"96px","bottom":"72px"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull" style="background:linear-gradient(135deg,#146074 0%,#0b3743 100%);padding-top:96px;padding-bottom:72px">
+  <!-- wp:group {"layout":{"type":"constrained","contentSize":"640px"}} -->
+  <div class="wp-block-group">
+    <!-- wp:paragraph {"fontSize":"small","textColor":"teal-300","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em","fontWeight":"600"}},"className":"dov-kicker"} -->
+    <p class="has-teal-300-color has-text-color has-small-font-size dov-kicker" style="text-transform:uppercase;letter-spacing:0.08em;font-weight:600">SECTEUR</p>
+    <!-- /wp:paragraph -->
+
+    <!-- wp:heading {"level":1,"fontSize":"x-large","textColor":"white"} -->
+    <h1 class="wp-block-heading has-white-color has-text-color has-x-large-font-size">SIG / GIS</h1>
+    <!-- /wp:heading -->
+
+    <!-- wp:paragraph {"fontSize":"medium","textColor":"teal-100"} -->
+    <p class="has-teal-100-color has-text-color has-medium-font-size">Des données géoréférencées pour vos systèmes d'information géographique : orthophotographies, modèles numériques de terrain et courbes de niveau, du bâtiment à l'échelle d'une commune entière.</p>
+    <!-- /wp:paragraph -->
+
+    <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"22px"}}}} -->
+    <div class="wp-block-buttons" style="margin-top:22px">
+      <!-- wp:button {"backgroundColor":"white","textColor":"teal-900"} -->
+      <div class="wp-block-button"><a class="wp-block-button__link has-teal-900-color has-white-background-color has-text-color has-background wp-element-button dov-btn dov-btn--volet" href="/contact/"><span class="dov-btn__curtain" aria-hidden="true"></span><span class="dov-btn__edge" aria-hidden="true"></span><span class="dov-btn__label">Demander un devis</span></a></div>
+      <!-- /wp:button -->
+    </div>
+    <!-- /wp:buttons -->
+  </div>
+  <!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- Réalisations liées : boucle wp:query (inherit) filtrée automatiquement par la taxonomie de l'archive courante — chaque Réalisation publiée avec ce terme apparaît ici sans retouche du gabarit ; message de repli tant qu'aucune n'existe encore. -->
+<!-- wp:group {"align":"wide","style":{"color":{"background":"#e4f0f2"},"border":{"radius":"8px"},"spacing":{"padding":{"top":"40px","bottom":"40px"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide has-background" style="border-radius:8px;background-color:#e4f0f2;padding-top:40px;padding-bottom:40px">
+  <!-- wp:group {"layout":{"type":"constrained","contentSize":"600px"}} -->
+  <div class="wp-block-group" style="text-align:center">
+    <!-- wp:heading {"level":3,"textAlign":"center","fontSize":"large","textColor":"teal-900"} -->
+    <h3 class="wp-block-heading has-text-align-center has-teal-900-color has-text-color has-large-font-size">Réalisations liées</h3>
+    <!-- /wp:heading -->
+  </div>
+  <!-- /wp:group -->
+
+  <!-- wp:query {"queryId":0,"query":{"perPage":10,"pages":0,"offset":0,"postType":"realisation","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"excludeCurrent":null},"align":"wide","className":"dov-realisation-carousel-query"} -->
+  <div class="wp-block-query alignwide dov-realisation-carousel-query"><!-- wp:post-template {"className":"dov-realisation-carousel"} -->
+  <!-- wp:post-featured-image {"isLink":true,"className":"dov-realisation-carousel__media"} /-->
+
+  <!-- wp:post-title {"level":4,"isLink":true,"className":"dov-realisation-carousel__title","fontSize":"small"} /-->
+  <!-- /wp:post-template -->
+
+  <!-- wp:query-no-results -->
+  <!-- wp:paragraph {"align":"center","style":{"typography":{"textAlign":"center"}},"fontSize":"small"} -->
+  <p class="has-text-align-center has-small-font-size">Les réalisations liées à ce secteur seront ajoutées ici au fur et à mesure des projets publiés.</p>
+  <!-- /wp:paragraph -->
+  <!-- /wp:query-no-results --></div>
+  <!-- /wp:query -->
+
+  <!-- wp:group {"layout":{"type":"constrained","contentSize":"600px"}} -->
+  <div class="wp-block-group" style="text-align:center">
+    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"24px"}}}} -->
+    <div class="wp-block-buttons" style="margin-top:24px">
+      <!-- wp:button {"backgroundColor":"white","textColor":"teal-900","fontSize":"small"} -->
+      <div class="wp-block-button has-small-font-size"><a class="wp-block-button__link has-teal-900-color has-white-background-color has-text-color has-background wp-element-button dov-btn dov-btn--volet" href="/realisations/"><span class="dov-btn__curtain" aria-hidden="true"></span><span class="dov-btn__edge" aria-hidden="true"></span><span class="dov-btn__label">Voir nos réalisations</span></a></div>
+      <!-- /wp:button -->
+    </div>
+    <!-- /wp:buttons -->
+  </div>
+  <!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","style":{"color":{"background":"#146074"},"border":{"radius":"8px"},"spacing":{"padding":{"top":"36px","bottom":"36px","left":"40px","right":"40px"},"margin":{"top":"40px","bottom":"64px"}}},"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"},"className":"dov-cta"} -->
+<div class="dov-cta wp-block-group alignwide has-background" style="border-radius:8px;background-color:#146074;padding-top:36px;padding-right:40px;padding-bottom:36px;padding-left:40px;margin-top:40px;margin-bottom:64px">
+  <!-- wp:group {"layout":{"type":"constrained","contentSize":"480px"}} -->
+  <div class="wp-block-group">
+    <!-- wp:heading {"level":3,"fontSize":"large","textColor":"white"} -->
+    <h3 class="wp-block-heading has-white-color has-text-color has-large-font-size">Un projet dans ce secteur ?</h3>
+    <!-- /wp:heading -->
+    <!-- wp:paragraph {"fontSize":"small","textColor":"teal-100"} -->
+    <p class="has-teal-100-color has-text-color has-small-font-size">Parlons de votre besoin, nous vous proposons une approche adaptée.</p>
+    <!-- /wp:paragraph -->
+  </div>
+  <!-- /wp:group -->
+
+  <!-- wp:buttons -->
+  <div class="wp-block-buttons">
+    <!-- wp:button {"backgroundColor":"stone","textColor":"teal-900"} -->
+    <div class="wp-block-button"><a class="wp-block-button__link has-teal-900-color has-stone-background-color has-text-color has-background wp-element-button dov-btn dov-btn--volet" href="/contact/"><span class="dov-btn__curtain" aria-hidden="true"></span><span class="dov-btn__edge" aria-hidden="true"></span><span class="dov-btn__label">Demander un devis</span></a></div>
+    <!-- /wp:button -->
+  </div>
+  <!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

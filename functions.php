@@ -92,10 +92,9 @@ add_action('init', function () {
 	}
 
 	$prestations = [
-		'photogrammetrie-aerienne-drone' => "Photogrammétrie aérienne par drone",
-		'orthophotographie-precision'    => "Orthophotographie de précision",
-		'releves-laser-scan-to-bim'      => "Relevés laser & Scan-to-BIM",
-		'visites-virtuelles-360'         => "Visites virtuelles immersives (360°)",
+		'releve-aerien-drone'          => "Relevé aérien par drone",
+		'releve-terrestre-scan-to-bim' => "Relevé terrestre Scan-to-BIM",
+		'visite-virtuelle'             => "Visite virtuelle",
 	];
 	foreach ($prestations as $slug => $name) {
 		if (!term_exists($slug, 'prestation')) {
@@ -104,6 +103,7 @@ add_action('init', function () {
 	}
 
 	$secteurs = [
+		'sig-gis'                 => "SIG / GIS",
 		'architecture-ingenierie' => "Architecture & ingénierie",
 		'monuments-historiques'   => "Monuments historiques",
 		'promotion-immobiliere'   => "Promotion immobilière",
@@ -139,6 +139,89 @@ add_action('init', function () {
 	flush_rewrite_rules();
 	update_option('3dv_seeded_content_v1', 1);
 }, 20);
+
+/**
+ * Nouvelle structure Prestations / Secteurs (11.11.2026) — voir
+ * structure-et-textes-site-2.0.md et architecture-technique-wordpress.md.
+ * 3 prestations (le drone devient une page unique à sections), ajout du
+ * secteur SIG / GIS, l'orthophotographie devient un livrable du drone.
+ * Migration des termes déjà créés par la v1 : renommés (pas de doublon),
+ * Réalisations éventuellement taguées Orthophotographie reportées sur le
+ * drone avant suppression du terme. Idempotent (option verrou v2).
+ */
+add_action('init', function () {
+	if (get_option('3dv_seeded_content_v2')) {
+		return;
+	}
+
+	$renames = [
+		'photogrammetrie-aerienne-drone' => ['releve-aerien-drone', "Relevé aérien par drone"],
+		'releves-laser-scan-to-bim'      => ['releve-terrestre-scan-to-bim', "Relevé terrestre Scan-to-BIM"],
+		'visites-virtuelles-360'         => ['visite-virtuelle', "Visite virtuelle"],
+	];
+	foreach ($renames as $old => [$slug, $name]) {
+		$term = get_term_by('slug', $old, 'prestation');
+		if ($term && !term_exists($slug, 'prestation')) {
+			wp_update_term($term->term_id, 'prestation', ['name' => $name, 'slug' => $slug]);
+		} elseif (!term_exists($slug, 'prestation')) {
+			wp_insert_term($name, 'prestation', ['slug' => $slug]);
+		}
+	}
+
+	$ortho = get_term_by('slug', 'orthophotographie-precision', 'prestation');
+	$drone = get_term_by('slug', 'releve-aerien-drone', 'prestation');
+	if ($ortho) {
+		if ($drone) {
+			$ids = get_objects_in_term($ortho->term_id, 'prestation');
+			if (!is_wp_error($ids)) {
+				foreach ($ids as $id) {
+					wp_set_object_terms((int) $id, (int) $drone->term_id, 'prestation', true);
+				}
+			}
+		}
+		wp_delete_term($ortho->term_id, 'prestation');
+	}
+
+	if (!term_exists('sig-gis', 'secteur')) {
+		wp_insert_term("SIG / GIS", 'secteur', ['slug' => 'sig-gis']);
+	}
+
+	flush_rewrite_rules();
+	update_option('3dv_seeded_content_v2', 1);
+}, 21);
+
+/**
+ * Redirections 301 des anciennes URL de prestation (structure v1).
+ */
+add_action('template_redirect', function () {
+	$path = trim((string) wp_parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH), '/');
+	$map = [
+		'prestation/photogrammetrie-aerienne-drone' => '/prestation/releve-aerien-drone/',
+		'prestation/orthophotographie-precision'    => '/prestation/releve-aerien-drone/#livrables',
+		'prestation/releves-laser-scan-to-bim'      => '/prestation/releve-terrestre-scan-to-bim/',
+		'prestation/visites-virtuelles-360'         => '/prestation/visite-virtuelle/',
+	];
+	if (isset($map[$path])) {
+		wp_safe_redirect(home_url($map[$path]), 301);
+		exit;
+	}
+});
+
+/**
+ * Images (11.11.2026) — voir nomenclature-illustrations-wp.md.
+ * Sources uploadées en JPG (qualité 85–90), tailles générées en WebP quand
+ * le serveur sait l'encoder ; seuil de redimensionnement laissé à 2560 px,
+ * cohérent avec les formats de la nomenclature (évite le suffixe "-scaled").
+ */
+add_filter('image_editor_output_format', function ($formats) {
+	if (wp_image_editor_supports(['mime_type' => 'image/webp'])) {
+		$formats['image/jpeg'] = 'image/webp';
+	}
+	return $formats;
+});
+add_filter('big_image_size_threshold', function () {
+	return 2560;
+});
 
 add_action('wp_enqueue_scripts', function () {
 	$path = get_theme_file_path('assets/css/extra.css');
