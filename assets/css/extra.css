@@ -1369,3 +1369,9 @@ header {
 .dov-section > .dov-kicker:not(.has-text-align-center) {
 	display: block;
 }
+
+/* Grilles de visuels : neutralise la marge de « blockGap » que WordPress
+   ajoute à chaque enfant sauf le premier, qui décalait la 1re carte. */
+.dov-media-grid > * {
+	margin: 0 !important;
+}
