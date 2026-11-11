@@ -1354,3 +1354,18 @@ header {
 .dov-media-card p {
 	margin: 10px 0 0 !important;
 }
+
+/* Correctifs d'alignement page drone (11.11.2026) :
+   - la barre d'ancres porte la classe alignwide (enfant direct de
+     .wp-site-blocks), donc la règle .wp-site-blocks > .alignwide (1200px)
+     l'emportait : on la ramène sur la colonne de texte (760px) ;
+   - dans les sections à mise en page « constrained », le surtitre
+     inline-block ignore le centrage par marges auto et restait collé au bord
+     gauche de la zone large : passé en bloc pour suivre la colonne. */
+.wp-site-blocks > .dov-anchor-nav.alignwide {
+	max-width: 760px;
+}
+
+.dov-section > .dov-kicker:not(.has-text-align-center) {
+	display: block;
+}
